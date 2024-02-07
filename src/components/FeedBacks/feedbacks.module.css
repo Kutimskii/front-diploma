@@ -1,0 +1,81 @@
+.feedbacks{
+  padding: 152px 260px 122px 254px;
+  font-family: 'Roboto', sans-serif;
+}
+.feedbacks_title{
+  margin: 0;
+  color: #292929;
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.feedbacks_items_wrap{
+  margin-top: 33px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.feedbacks_item{
+  display: flex;
+}
+.feedbacks_item_icon_kate{
+  min-width: 205px;
+  height: 205px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../img/icons/feedBackKate.png);
+}
+.feedbacks_item_icon_eugen{
+  min-width: 205px;
+  height: 205px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../img/icons/feedBackEugen.png);
+}
+.feedbacks_item_describe{
+  max-width: 412px;
+  margin-left: 19px;
+}
+.feedbacks_item_describe_title{
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000
+}
+.feedbacks_item_describe_text{
+  font-size: 18px;
+  font-weight: 300;
+  color: #928F94;
+  font-style: italic;
+}
+.feedbacks_item_describe_text_quote{
+  display: inline-block;
+  line-height: 100%;
+  vertical-align: bottom;
+  font-size: 36px;
+  font-weight: 500;
+  height: 36px;
+}
+.feedbacks_item_describe_text_quoteEnd{
+  display: inline-block;
+  line-height: 100%;
+  vertical-align: top;
+  font-size: 36px;
+  font-weight: 500;
+  height: 36px;
+  padding-top: 16px;
+}
+.feedbacks_slider{
+  margin-top: 134px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.feedbacks_slider_dot{
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+}
+.feedbacks_slider_active_dot{
+  background-color: #C4C4C4
+} 

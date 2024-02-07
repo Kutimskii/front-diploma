@@ -1,0 +1,51 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 985px;
+  background-image: url(../../img/MaskGroup.png);
+  background-position: 0%;
+  border-bottom: #FFA800 solid 8px;
+}
+
+.header_logo{
+  max-height: 64px;
+  padding: 15px 0 0 258px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.header_logo_text{
+  width: 104px;
+  height: 49px;
+  margin: 0 ;
+  font-family: 'Roboto ', sans-serif;
+  font-size: 36px;
+  color: #E5E5E5;
+}
+.header_menu{
+  margin: 0;
+  max-height: 94px;
+  padding: 26px 0 26px 258px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  background-color:#292929;
+}
+.header_menu_link{
+  color: #FFFFFF;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin-right: 82px;
+}
+
+/* ChooseTrain Page */
+.header_headerBckgAlt{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 596px;
+  background-image: url(../../img/header_bcgr.png);
+  background-position: 0%;
+}

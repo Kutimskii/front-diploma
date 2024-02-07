@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+body{
+  margin: 0;
+}
+#root{
+  margin: auto;
+  max-width: 1920px;
+}
+ /* DatePicker  */
+.ant-picker-year-btn,
+.ant-picker-header-super-next-btn,
+.ant-picker-header-super-prev-btn,
+.ant-picker-footer{
+  display: none;
+}
+.ant-picker-month-btn::first-letter {
+  text-transform: uppercase;
+}
+.ant-picker-panel-layout{
+  justify-content: center;
+}
+.date_picker{
+  inset: -50px auto auto -10px !important;
+}
+.date_picker .ant-picker-month-btn{
+  font-family: 'Roboto',sans-serif !important;
+  font-size: 20px !important;
+}
+.ant-picker-cell:hover{
+  background: none !important;
+}
+.ant-picker-cell-inner:hover{
+  background-color: rgba(255, 168, 0, 0.31) !important;
+  outline: 1px solid rgba(255, 168, 0, 1) !important;
+}
+.ant-picker-cell-today .ant-picker-cell-inner::before{
+  border: 1px solid rgba(255, 168, 0, 1) !important;
+}
+.ant-picker-cell-selected .ant-picker-cell-inner{
+  background-color: rgba(255, 168, 0, 0.31) !important;
+  outline: 1px solid rgba(255, 168, 0, 1) !important;
+  color: black !important;
+}

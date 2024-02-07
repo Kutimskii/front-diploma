@@ -1,0 +1,78 @@
+.howItWork{
+  height: 575px;
+  padding: 60px 268px 90px 252px;
+  background-image: url(../../img/Rails.png);
+  background-size: cover;
+  background-color: #FFA800;
+}
+.howItWork_info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.howItWork_title{
+  color: #FFFFFF;
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.howItWork_btnMore{
+  width: 325px;
+  height: 60px;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  appearance: none;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background: none;
+}
+.howItWork_btnMore:hover{
+  color: #2D2B2F;
+  background-color: #FFCA62;
+  border-color: #2D2B2F;
+}
+.howItWork_btnMore:active{
+  color: #2D2B2F;
+  background-color: #FFFFFF;
+  border-color: #2D2B2F;
+}
+.howItWork_advantages_wrap{
+  display: flex;
+  margin-top: 97px;
+  justify-content: space-between;
+  padding-left: 230px;
+  padding-right: 196px;
+}
+.howItWork_advantages_item{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.howItWork_advantages_item_text{
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  padding: 0;
+}
+.howItWork_advantages_item_icon_comp{
+  width: 162px;
+  height: 162px;
+  background-image: url(../../img/icons/orderOnSite.png);
+  background-size: cover;
+}
+.howItWork_advantages_item_icon_build{
+  width: 162px;
+  height: 162px;
+  background-image: url(../../img/icons/orderFromHome.png);
+  background-size: cover;
+}
+.howItWork_advantages_item_icon_huge{
+  width: 162px;
+  height: 162px;
+  background-image: url(../../img/icons/hugeChoice.png);
+  background-size: cover;
+}

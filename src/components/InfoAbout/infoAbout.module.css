@@ -1,0 +1,32 @@
+.infoAbout{
+  padding-left: 258px;
+}
+.infoAbout_title{
+  margin-top: 144px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+.infoAbout_text{
+  margin-bottom: 190px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+.infoAbout_text::before{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: #FFA800;
+  height: 100%;
+  width: 9px;
+  margin-right: 19px;
+}
+.infoAbout_text_imp{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
