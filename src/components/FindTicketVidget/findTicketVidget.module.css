@@ -60,9 +60,6 @@
 }
 .input_date_from_wrap_dp::before,
 .input_date_to_wrap_dp::before{
-  /* position: absolute;
-  top:15px;
-  right: 17px; */
   content:url(../../img/icons/calendar_icon.png);
 }
 .input_direction::placeholder{
@@ -124,7 +121,4 @@ position: relative;
   background-color: rgba(255, 168, 0, 0);
   color: rgba(255, 168, 0, 1);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-.ant-picker-header-view{
-  background-color: black !important;
 }

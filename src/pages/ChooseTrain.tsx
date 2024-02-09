@@ -1,6 +1,6 @@
 import { Header } from "../components/Header/Header";
-import { InfoAbout } from "../components/InfoAbout/InfoAbout";
 import { Footer } from "../components/Footer/Footer";
+import { Tickets } from "../components/Tickets/Tickets";
 import { StepsOfOrder } from "../components/StepsOfOrder/StepsOfOrder";
 export const ChooseTrain:React.FunctionComponent = () => {
   return (
@@ -10,8 +10,7 @@ export const ChooseTrain:React.FunctionComponent = () => {
       travelSlogan = { false }
     />
     <StepsOfOrder/>
-    <InfoAbout/>
-
+    <Tickets/>
     <Footer/>
   </>
   );

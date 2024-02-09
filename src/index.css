@@ -26,6 +26,9 @@ body{
 .date_picker{
   inset: -50px auto auto -10px !important;
 }
+.date_picker_ticket{
+  inset: -0px auto auto -10px !important;
+}
 .date_picker .ant-picker-month-btn{
   font-family: 'Roboto',sans-serif !important;
   font-size: 20px !important;
@@ -44,4 +47,32 @@ body{
   background-color: rgba(255, 168, 0, 0.31) !important;
   outline: 1px solid rgba(255, 168, 0, 1) !important;
   color: black !important;
+}
+.date_from_wrap_dp,
+.date_to_wrap_dp{
+  position: relative;
+}
+.input_date_from_wrap_dp::before,
+.input_date_to_wrap_dp::before{
+  background-image: url(../src/img/icons/calendar_icon.png);
+  background-size: cover;
+  display: inline-block;
+  width: 20px; 
+  height: 22px;
+  content:"";
+}
+/* Switch */
+.ant-switch-checked .ant-switch-handle::before{
+  background-color: #FFA800;
+}
+/* Slider */
+.ant-slider-rail{
+  border: 1px solid #C4C4C4
+}
+.ant-slider-mark{
+  top: 50px !important;
+  width: 92% !important;
+}
+.ant-tooltip-inner{
+  box-shadow: none !important;
 }

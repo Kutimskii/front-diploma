@@ -25,7 +25,7 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
             <div className= {styles.vidget_directionDate_container}>
             <p className={styles.vidget_direction_title}>Дата</p>
             <div className={styles.date_wrap}>
-              <div className={styles.input_date_from_wrap}>
+            <div className='date_from_wrap_dp'>
                   <DatePicker 
                     locale={ru}
                     popupClassName="date_picker"
@@ -33,9 +33,9 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
                       width: '352px',
                     }}
                     getPopupContainer={(trigger:HTMLElement):HTMLElement => trigger.parentElement!}
-                    placement="bottomRight"
+                    // placement="bottomRight"
                     placeholder="ДД/ММ/ГГ"
-                    suffixIcon={<div className={styles.input_date_to_wrap_dp}></div>} 
+                    suffixIcon={<div className='input_date_from_wrap_dp'></div>} 
                     style={{
                       width: '325px',
                       height: '60px',
@@ -45,7 +45,7 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
                       fontSize:'20px',
                     }}
                   />
-              </div>
+            </div>
               <div className={styles.input_date_to_wrap}>
               <DatePicker 
                     locale={ru}

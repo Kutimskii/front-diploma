@@ -1,0 +1,103 @@
+.chooseTickets{
+  padding: 95px 260px;
+}
+.settingTickets{
+  display: flex;
+  padding: 43px 36px 0 28px;
+  flex-direction: column;
+align-items: center;
+  width: 364px;
+  height: 1012px;
+  background-color:#3E3C41;
+}
+.date_travel_title{
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 7px 0;
+}
+.findTickets_facilities{
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top:28px;
+  padding: 25px 0 25px 48px;
+}
+.findTickets_facilities::before{
+  position:absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  border-top: 1px solid #FFFFFF;
+}
+.findTickets_facilities_wrap{
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+}
+.findTickets_facilities_switch{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 29px;
+}
+.findTickets_facilities_switch_coupe_icon{
+  background-image: url(../../img/icons/facilities/coupe_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 17px;
+}
+.findTickets_facilities_switch_econom_icon{
+  background-image: url(../../img/icons/facilities/economSeat_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 17px;
+}
+.findTickets_facilities_switch_siting_icon{
+  background-image: url(../../img/icons/facilities/sitting_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.findTickets_facilities_switch_luxe_icon{
+  background-image: url(../../img/icons/facilities/luxe_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+}
+.findTickets_facilities_switch_wifi_icon{
+  background-image: url(../../img/icons/facilities/wifi_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 19px;
+}
+.findTickets_facilities_switch_express_icon{
+  background-image: url(../../img/icons/facilities/express_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+}
+.findTickets_facilities_switch_icon_wrap{
+  display: flex;
+}
+.findTickets_facilities_switch p{
+  margin: 0 0 0 34px;
+}
+
+.findTickets_price_text{
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.lok{}
