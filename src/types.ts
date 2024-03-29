@@ -35,12 +35,12 @@ export type TSortObj = {
   duration: string
 }
 export type TArgsTickets = {
-  from_city_id: string
-  to_city_id: string
-  date_start?: string
-  date_end?: string
-  date_start_arrival?: string
-  date_end_arrival?: string
+  from_city_id?: string
+  to_city_id?: string
+  date_start?: string | null
+  date_end?: string | null
+  date_start_arrival?: string| null
+  date_end_arrival?: string | null
   have_first_class?: boolean
   have_second_class?: boolean
   have_third_class?: boolean

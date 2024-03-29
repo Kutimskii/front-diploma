@@ -1,8 +1,9 @@
 import styles from './ticket.module.css'
 import { TTicket } from '../../../types'
+import React from 'react';
 export const Ticket:React.FunctionComponent <{wagon:TTicket}> = ({wagon}) => {
-let durationHours  = Math.floor(wagon.departure.duration / 3600);
-let durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600)*3600))/60
+const durationHours  = Math.floor(wagon.departure.duration / 3600);
+const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600)*3600))/60
   return (
   <li className={styles.ticket}>
     <div className = {styles.ticketDirect}>
@@ -42,36 +43,54 @@ let durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.du
       </div>
     </div>
     <div className = {styles.ticketPrices}>
-      {wagon.departure.available_seats_info.fourth ? 
-        <div className = {styles.ticketPricesItem}>
-          <span>Сидячий</span>  <span>{wagon.departure.available_seats_info.fourth}</span>
-          <span>от</span>
-          <span>{wagon.departure.price_info.fourth.top_price}</span>
-          <span>&#8381;</span>
-        </div> : null}
-      {wagon.departure.available_seats_info.third ? 
-        <div className = {styles.ticketPricesItem}>
-          <span className = {styles.ticketPricesItemSeat}>Плацкарт</span> 
-          <span className = {styles.ticketPricesItemSeatCount}>{wagon.departure.available_seats_info.third}</span>
-          <span className = {styles.ticketPricesItemSeatArticle}>от</span>
-          <span className = {styles.ticketPricesItemSeatPrice}>{wagon.departure.price_info.third.top_price}</span>
-          <span>&#8381;</span>
-         </div>  : null}
-      {wagon.departure.available_seats_info.second ? 
-        <div className = {styles.ticketPricesItem}>
-          <span>Купе</span><span>{wagon.departure.available_seats_info.second}</span>
-          <span>от</span>
-          <span>{wagon.departure.price_info.second.top_price}</span>
-          <span>&#8381;</span>
-        </div> : null}
-      {wagon.departure.available_seats_info.first ? 
-        <div className = {styles.ticketPricesItem}>
-          <span>Люкс</span> <span>{wagon.departure.available_seats_info.first}</span>
-          <span>от</span>
-          <span>{wagon.departure.price_info.first.top_price}</span>
-          <span>&#8381;</span>
-        </div> : null}
-      <button type="button" className={styles.ticketPricesBtn}>Выбрать места</button>
+      <div className = {styles.ticketPricesWrap}>
+        {wagon.departure.available_seats_info.fourth ? 
+          <div className = {styles.ticketPricesItem}>
+            <span className = {styles.ticketPricesItemSeat}>Сидячий</span>
+            <span className = {styles.ticketPricesItemSeatCount}>{wagon.departure.available_seats_info.fourth}</span>
+            <span className = {styles.ticketPricesItemSeatArticle}>от</span>
+            <span className = {styles.ticketPricesItemSeatPrice}>{wagon.departure.price_info.fourth.top_price}</span>
+            <span className = {styles.ticketPricesItemSeatCurrency}>&#8381;</span>
+          </div> : null}
+        {wagon.departure.available_seats_info.third ? 
+          <div className = {styles.ticketPricesItem}>
+            <span className = {styles.ticketPricesItemSeat}>Плацкарт</span> 
+            <span className = {styles.ticketPricesItemSeatCount}>{wagon.departure.available_seats_info.third}</span>
+            <span className = {styles.ticketPricesItemSeatArticle}>от</span>
+            <span className = {styles.ticketPricesItemSeatPrice}>{wagon.departure.price_info.third.top_price}</span>
+            <span className = {styles.ticketPricesItemSeatCurrency}>&#8381;</span>
+          </div>  : null}
+        {wagon.departure.available_seats_info.second ? 
+          <div className = {styles.ticketPricesItem}>
+            <span className = {styles.ticketPricesItemSeat}>Купе</span>
+            <span className = {styles.ticketPricesItemSeatCount}>{wagon.departure.available_seats_info.second}</span>
+            <span className = {styles.ticketPricesItemSeatArticle}>от</span>
+            <span className = {styles.ticketPricesItemSeatPrice}>{wagon.departure.price_info.second.top_price}</span>
+            <span className = {styles.ticketPricesItemSeatCurrency}>&#8381;</span>
+          </div> : null}
+        {wagon?.departure.available_seats_info.first ? 
+          <div className = {styles.ticketPricesItem}>
+            <span className = {styles.ticketPricesItemSeat}>Люкс</span>
+            <span className = {styles.ticketPricesItemSeatCount}>{wagon.departure.available_seats_info.first}</span>
+            <span className = {styles.ticketPricesItemSeatArticle}>от</span>
+            <span className = {styles.ticketPricesItemSeatPrice}>{wagon.departure.price_info.first.top_price}</span>
+            <span className = {styles.ticketPricesItemSeatCurrency}>&#8381;</span>
+          </div> : null}
+      </div>
+      <div className = {styles.ticketPricesFacilitiesWrap}>
+        <div className = {styles.ticketPricesFacilities}>
+          {wagon.departure.have_air_conditioning ? <div className = {styles.ticketPricesFacilitiesAir}></div>: null}
+          {wagon.departure.is_express ? <div className = {styles.ticketPricesFacilitiesExpress}></div>: null}
+          {wagon.departure.have_wifi ? <div className = {styles.ticketPricesFacilitiesWifi}></div>: null}
+          {wagon.departure.have_first_class ? <div className = {styles.ticketPricesFacilitiesFirst}></div>: null}
+          {wagon.departure.have_second_class ? <div className = {styles.ticketPricesFacilitiesSecond}></div>: null}
+          {wagon.departure.have_third_class ? <div className = {styles.ticketPricesFacilitiesThird}></div>: null}
+          {wagon.departure.have_fourth_class ? <div className = {styles.ticketPricesFacilitiesFourth}></div>: null}
+
+        </div>
+        <button type="button" className={styles.ticketPricesBtn}>Выбрать места</button>
+      </div>
+      
     </div>
   </li>)
 }

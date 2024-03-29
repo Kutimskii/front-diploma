@@ -10,8 +10,7 @@ export const DirectionsDate:React.FunctionComponent<TDirectionsDateProps> = ({da
       <div className={styles.date_wrap}>
         <div className={styles.input_date_from_wrap}>
               <DatePicker 
-                onChange={(e) => setDateFrom(e)
-              }
+                onChange={(e) => setDateFrom(e)}
                 value= {dateFrom}
                 locale={ru}
                 format={'DD/MM/YYYY'}

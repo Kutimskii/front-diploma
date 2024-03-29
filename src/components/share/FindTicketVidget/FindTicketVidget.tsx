@@ -1,16 +1,17 @@
-import styles from "./findTicketVidget.module.css"
-import ru from 'antd/es/date-picker/locale/ru_RU'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from "../../../store/store"
-import { useState } from "react"
-import { saveSearch } from "../../../store/slicers/findFields"
-import { saveArgs } from "../../../store/slicers/tickets"
-import 'dayjs/locale/ru'
-import { Directions } from "../Directions/Directions"
-import { DirectionsDate } from "../DirectionsDate/DirectionsDate"
-import dayjs from "dayjs"
+import styles from "./findTicketVidget.module.css";
+import React from "react";
+import ru from 'antd/es/date-picker/locale/ru_RU';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from "../../../store/store";
+import { useState } from "react";
+import { saveSearch } from "../../../store/slicers/findFields";
+import { saveArgs } from "../../../store/slicers/tickets";
+import 'dayjs/locale/ru';
+import { Directions } from "../Directions/Directions";
+import { DirectionsDate } from "../DirectionsDate/DirectionsDate";
+import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
-import { Dayjs } from "dayjs"
+import { Dayjs } from "dayjs";
 ru.lang.monthFormat="MMMM";
 export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slogan}) => {
   const navigate = useNavigate();

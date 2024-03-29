@@ -15,7 +15,7 @@ export const Directions:React.FunctionComponent<TDirectionProps> = (
    setDirectToId}) => {
     const [reverseDirect, setReverse ] = useState<boolean>(false);
     // const dispatch = useDispatch();
-    const {data, isLoading, error} = useGetCitiesQuery(directFromFocus  && directFrom.length >= 1 ? 
+    const {data} = useGetCitiesQuery(directFromFocus  && directFrom.length >= 1 ? 
     directFrom : directToFocus && directTo.length >= 1 ? directTo : 'м');
     const reverse = () => {
       setReverse(prev => !prev);

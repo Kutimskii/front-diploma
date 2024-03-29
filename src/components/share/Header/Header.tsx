@@ -1,4 +1,5 @@
 import styles from "./header.module.css";
+import React from "react";
 import { Travel } from "../../Travel/Travel";
 type THeaderProps = {
   headerBckgAlt:boolean,

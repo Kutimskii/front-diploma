@@ -1,13 +1,14 @@
-import styles from './tickets.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
-import { useGetCitiesQuery, useGetTicketsQuery } from '../../store/slicers/tickets'
-import { Loader } from '../share/Loader/Loader'
-import { saveArgs } from '../../store/slicers/tickets'
-import { TicketsFilter } from '../TicketsFilter/TicketsFilter'
-import { useState, useEffect } from 'react'
-import { TSortObj, TTicket } from '../../types'
-import { Ticket } from '../share/Ticket/Ticket'
+import styles from './tickets.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { useGetTicketsQuery } from '../../store/slicers/tickets';
+import { Loader } from '../share/Loader/Loader';
+import { saveArgs } from '../../store/slicers/tickets';
+import { TicketsFilter } from '../TicketsFilter/TicketsFilter';
+import { useState, useEffect } from 'react';
+import { TSortObj } from '../../types';
+import React from "react";
+import { Ticket } from '../share/Ticket/Ticket';
 export const Tickets:React.FunctionComponent = () => {
   const dispatch  = useDispatch();
   const sortObj:TSortObj = {
@@ -20,18 +21,18 @@ export const Tickets:React.FunctionComponent = () => {
   const [sortListType, setSortListType] = useState<boolean>(false);
   const [sortLimit, setSortLimit] = useState<number>(5);
   const changeSortType = (e : React.MouseEvent<HTMLLIElement> ) => {
-    let text = ((e.target as HTMLLIElement).outerText)
-    let type = Object.keys(sortObj).find(k => sortObj[k as keyof TSortObj] === text)!
+    const text = ((e.target as HTMLLIElement).outerText)
+    const type = Object.keys(sortObj).find(k => sortObj[k as keyof TSortObj] === text)!
     setSortType(type)
     setSortListType(prev => !prev)
   }
-  console.log(sortObj[sortType as keyof TSortObj])
+
   const changeSortLimit = (e : React.MouseEvent<HTMLLIElement>) => {
     setSortLimit(+(e.target as HTMLLIElement).outerText);
   }
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const ticketArgs = useSelector((state:RootState) => state.saveArgs)
-  const {data, isLoading, error, refetch} = useGetTicketsQuery(ticketArgs)
+  const {data, isLoading} = useGetTicketsQuery(ticketArgs)
   useEffect(()=> {
     dispatch(saveArgs({
       from_city_id: filledFields.directionFromId,
@@ -40,12 +41,14 @@ export const Tickets:React.FunctionComponent = () => {
       sort: sortType
     }))
   },[sortType,sortLimit])
+  // useEffect(()=> {
+  //   refetch()
+  // },[ticketArgs])
   
-console.log(sortType)
 console.log(data)
   return (
     <section className={styles.chooseTickets}>
-      {false ? <Loader/> : 
+      {isLoading ? <Loader/> : 
       <main className={styles.tickets}>
         <TicketsFilter/>
         <div className={styles.findedTickets}>
@@ -78,7 +81,7 @@ console.log(data)
               </div>
             </div>
             <ul className={styles.findedTicketsFromServerWrap}>
-              {data?.items! ? data?.items.map((item, index: number) => <Ticket wagon = {item} key = {index}/>) : null}
+              {data?.items ? data?.items.map((item, index: number) => <Ticket wagon = {item} key = {index}/>) : null}
             </ul>
           </div>
           <div className={styles.findedTicketsFromServerPages}>

@@ -33,7 +33,6 @@
 .findTickets_facilities_wrap{
   display: flex;
   flex-direction: column;
-
   align-items: flex-end;
 }
 .findTickets_facilities_switch{
@@ -85,11 +84,20 @@
   width: 24px;
   height: 20px;
 }
+.findTickets_facilities_switch_air_icon{
+  background-image: url(../../img/icons/facilities/facilities_air_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(4368%) hue-rotate(178deg) brightness(116%) contrast(54%);
+
+}
 .findTickets_facilities_switch_icon_wrap{
   display: flex;
 }
 .findTickets_facilities_switch p{
-  margin: 0 0 0 34px;
+  margin: 0 0 0 28px;
 }
 
 .findTickets_price_text{

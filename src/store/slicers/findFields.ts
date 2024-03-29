@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction, } from '@reduxjs/toolkit'
-import { Dayjs } from 'dayjs'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction, } from '@reduxjs/toolkit';
 type TSearchTickets = {
   directionFrom: string,
   directionTo: string,

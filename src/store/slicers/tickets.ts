@@ -1,12 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { TCities, TArgsTickets, TTickets } from "../../types";
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector } from "react-redux"
-import { RootState } from "../store"
 import type { PayloadAction } from '@reduxjs/toolkit';
 const initialState: TArgsTickets = {
-  from_city_id: '',
-  to_city_id: '',
 }
 
 export const ticketsArgsSlice = createSlice({
@@ -14,6 +10,9 @@ export const ticketsArgsSlice = createSlice({
   initialState,
   reducers: {
     saveArgs: (state : TArgsTickets, action: PayloadAction<TArgsTickets>) => {
+      // for (let key in action.payload!){
+      //   key ? state[key as keyof TArgsTickets ] = action.payload : ''
+      // }
       return state = action.payload
     },
   },
@@ -28,8 +27,8 @@ export const getTicketsSlice = createApi({
     }),
     getTickets: builder.query<TTickets, TArgsTickets>({
       query: ({ 
-        from_city_id,
-        to_city_id,
+        from_city_id ,
+        to_city_id ,
         date_start,
         date_end,
         date_start_arrival,

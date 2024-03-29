@@ -1,5 +1,11 @@
-import styles from './ticketsFilter.module.css'
+import styles from './ticketsFilter.module.css';
 import { DatePicker } from 'antd';
+import { saveArgs } from '../../store/slicers/tickets';
+import { useEffect } from 'react';
+import dayjs from 'dayjs';
+import { Dayjs } from "dayjs";
+import { RootState } from '../../store/store';
+import { useSelector, useDispatch } from 'react-redux';
 import 'dayjs/locale/ru';
 import ru from 'antd/es/date-picker/locale/ru_RU';
 import { ConfigProvider } from 'antd';
@@ -7,9 +13,39 @@ import { Switch, Slider } from 'antd';
 import type { SliderSingleProps } from 'antd';
 import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
-  const [departureThere, setDepartureThere] = useState(false);
-  const [departureFrom, setDepartureFrom] = useState(false);
+  const filledFields = useSelector((state:RootState) => state.searchTickets);
+  const ticketArgs = useSelector((state:RootState) => state.saveArgs)
+  const dispatch  = useDispatch();
+  const [dateStart, setDateStart] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
+  const [dateEnd, setDateEnd ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
+  const [departureThere, setDepartureThere] = useState<boolean>(false);
+  const [departureFrom, setDepartureFrom] = useState<boolean>(false);
   const [visible, setVisible] = useState(['rgba(0, 0, 0, 0)','rgba(0, 0, 0, 0)'])
+  const [wifi, setWifi] = useState<boolean>(false);
+  const [airCond, setAirCond] = useState<boolean>(false);
+  const [firstClass, setFirstClass] = useState<boolean>(false);
+  const [secondClass, setSecondClass] = useState<boolean>(false);
+  const [thirdClass, setThirdClass] = useState<boolean>(false);
+  const [fourthClass, setFourthClass] = useState<boolean>(false);
+  const [express, setExpress] = useState<boolean>(false);
+  console.log(ticketArgs)
+  useEffect(()=> {
+    dispatch(saveArgs({
+      from_city_id: filledFields.directionFromId,
+      to_city_id: filledFields.directionToId,
+      date_start: filledFields.dateFrom,
+      date_end: filledFields.dateTo,
+      date_start_arrival: dateStart?.toDate().toString(),
+      date_end_arrival: dateEnd?.toDate().toString(),
+      have_first_class: firstClass,
+      have_second_class: secondClass,
+      have_third_class: thirdClass,
+      have_fourth_class: fourthClass,
+      have_wifi: wifi,
+      have_air_conditioning: airCond,
+      have_express: express,
+    }))
+  },[wifi,firstClass,secondClass,thirdClass,fourthClass,express])
   ru.lang.monthFormat="MMMM";
   const marks: SliderSingleProps['marks'] = {
     1920: {
@@ -41,6 +77,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
             <p className={styles.date_travel_title}>Дата поездки</p>
             <div className='date_from_wrap_dp'>
                   <DatePicker 
+                    onChange={(e) => setDateStart(e)}
                     locale={ru}
                     format={'DD/MM/YYYY'}
                     popupClassName="date_picker_tickets"
@@ -65,6 +102,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
             <p className={styles.date_travel_title}>Дата возвращения</p>
             <div className='date_to_wrap_dp'>
               <DatePicker 
+                    onChange={(e) => setDateEnd(e)}
                     locale={ru}
                     format={'DD/MM/YYYY'}
                     popupClassName="date_picker_tickets"
@@ -112,7 +150,15 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_coupe_icon}></div>
                       <p className={styles.findTickets_facilities_switch_coupe_text}>Купе</p>
                     </div>
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setSecondClass(e)}
+                    />
+                  </div>
+                  <div className={`${styles.findTickets_facilities_switch}`}>
+                    <div className={styles.findTickets_facilities_switch_icon_wrap}>
+                      <div className={styles.findTickets_facilities_switch_air_icon}></div>
+                      <p className={styles.findTickets_facilities_switch_coupe_text}>Кондиционер</p>
+                    </div>
+                    <Switch onChange={(e) => setAirCond(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -120,7 +166,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                         <div className={styles.findTickets_facilities_switch_econom_icon}></div>
                         <p className={styles.findTickets_facilities_switch_econom_text}>Плацкарт</p>
                     </div>
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setThirdClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -129,7 +175,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                         <p className={styles.findTickets_facilities_switch_siting_text}>Сидячий</p>
                       </div>
 
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setFourthClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -139,7 +185,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <p className={styles.findTickets_facilities_switch_luxe_text}>Люкс</p>
                     </div>
                   
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setFirstClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -147,7 +193,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_wifi_icon}></div>
                       <p className={styles.findTickets_facilities_switch_wifi_text}>Wi-Fi</p>
                     </div>
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setWifi(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -155,7 +201,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_express_icon}></div>
                       <p className={styles.findTickets_facilities_switch_express_text}>Экспресс</p>
                     </div>
-                    <Switch onChange={(e)=>console.log(e)}
+                    <Switch onChange={(e) => setExpress(e)}
                     />
                   </div>
                 </div>
@@ -180,7 +226,6 @@ export const TicketsFilter:React.FunctionComponent = () => {
                         dotSize:0,
                         fontSize:18,
                         fontFamily:'"Roboto", sans-serif',
-                        
                       },
                     },
                   }}
@@ -195,7 +240,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                     min={1920}
                     max={7000}
                     marks={marks}
-                    onChange={(e:any)=>{
+                    onChange={(e:Array<number>)=>{
                       if(e[0] > 3130 && e[1] < 5680){
                         return setVisible((['#FFF','#FFF']))
                       }

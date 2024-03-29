@@ -4,6 +4,7 @@ h1,h2,h3 {
 .ticket{
   display: flex;
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
   margin-bottom: 47px;
   border: #C4C4C4 1px solid;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
@@ -14,7 +15,6 @@ h1,h2,h3 {
 }
 .ticketDirect{
   width: 197px;
-  height: 100%;
   background-color: #E4E0E9;
   display: flex;
   flex-direction: column;
@@ -86,10 +86,115 @@ h1,h2,h3 {
   background-color:rgba(255, 168, 0, 1);
   border: rgba(255, 168, 0, 1) solid 1px;
   border-radius: 5px;
-  margin-top: 35px;
+  margin-top: 18px;
 }
 .ticketPrices{
   display: flex;
   flex-direction: column;
   padding: 49px 20px 23px 35px;
+  justify-content: space-between;
+  background-color:white;
+}
+.ticketPricesItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 33px;
+}
+.ticketPricesItemSeat{
+  display: inline-block;
+  font-size: 16px;
+  width: 86px;
+}
+.ticketPricesItemSeatCount{
+  font-size: 16px;
+  color: #FFA800;
+  font-weight: 500;
+}
+.ticketPricesItemSeatArticle{
+  color: #928F94;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+.ticketPricesItemSeatPrice{
+  font-size: 24px;
+  font-weight: 700;
+}
+.ticketPricesItemSeatCurrency{
+  font-size: 24px;
+  color: #928F94;
+}
+.ticketPricesWrap{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.ticketPricesFacilitiesWrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.ticketPricesFacilities{
+  display: flex;
+  justify-content: end;
+}
+.ticketPricesFacilities div {
+  margin-left: 13px;
+}
+.ticketPricesFacilitiesAir{
+  width:20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/facilities_air_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(4368%) hue-rotate(178deg) brightness(116%) contrast(54%);
+}
+.ticketPricesFacilitiesWifi{
+  width:30px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/wifi_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesExpress{
+  width:20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/express_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesFirst{
+  width:20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/luxe_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesSecond{
+  width:20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/coupe_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesThird{
+  width:20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/economSeat_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesFourth{
+  width: 20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/sitting_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ticketPricesFacilitiesExpress{
+  width: 20px;
+  height: 20px;
+  background-image: url('../../../img/icons/facilities/express_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
 }
