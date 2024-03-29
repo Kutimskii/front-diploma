@@ -29,7 +29,7 @@
   display: inline-block;
   width:30px;
   height: 30px;
-  background-image: url(../../img/icons/phone_icon.png);
+  background-image: url(../../../img/icons/phone_icon.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
   display: inline-block;
   width:30px;
   height: 25px;
-  background-image: url(../../img/icons/mail_icon.png);
+  background-image: url(../../../img/icons/mail_icon.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@
   display: inline-block;
   width:30px;
   height: 30px;
-  background-image: url(../../img/icons/skype_icon.png);
+  background-image: url(../../../img/icons/skype_icon.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@
   display: inline-block;
   width:21px;
   height: 30px;
-  background-image: url(../../img/icons/vector_icon.png);
+  background-image: url(../../../img/icons/vector_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -129,7 +129,7 @@
   display: inline-block;
   width: 36px;
   height: 36px;
-  background-image: url(../../img/icons/arrowTop_icon.png);
+  background-image: url(../../../img/icons/arrowTop_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -148,7 +148,7 @@
   margin-right: 48px;
   width: 38px;
   height: 30px;
-  background-image: url(../../img/icons/youtube_icon.png);
+  background-image: url(../../../img/icons/youtube_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -157,7 +157,7 @@
   margin-right: 48px;
   width: 31px;
   height: 30px;
-  background-image: url(../../img/icons/linkedin_icon.png);
+  background-image: url(../../../img/icons/linkedin_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -166,7 +166,7 @@
   margin-right: 48px;
   width: 47px;
   height: 30px;
-  background-image: url(../../img/icons/google_icon.png);
+  background-image: url(../../../img/icons/google_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -175,7 +175,7 @@
   margin-right: 48px;
   width: 14px;
   height: 30px;
-  background-image: url(../../img/icons/facebook_icon.png);
+  background-image: url(../../../img/icons/facebook_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -183,7 +183,7 @@
 .subscribe_social_networks_x{
   width: 37px;
   height: 30px;
-  background-image: url(../../img/icons/twitter_icon.png);
+  background-image: url(../../../img/icons/twitter_icon.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

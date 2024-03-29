@@ -1,5 +1,5 @@
 import styles from './travel.module.css'
-import { FindTicketVidget } from '../FindTicketVidget/FindTicketVidget'
+import { FindTicketVidget } from '../share/FindTicketVidget/FindTicketVidget'
 export const Travel:React.FunctionComponent<{slogan:boolean}> = ({slogan}) => {
 
   return (

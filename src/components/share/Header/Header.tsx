@@ -1,5 +1,5 @@
 import styles from "./header.module.css";
-import { Travel } from "../Travel/Travel";
+import { Travel } from "../../Travel/Travel";
 type THeaderProps = {
   headerBckgAlt:boolean,
   travelSlogan:boolean

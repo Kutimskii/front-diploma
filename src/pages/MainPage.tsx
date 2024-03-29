@@ -1,8 +1,8 @@
-import { Header } from "../components/Header/Header";
+import { Header } from "../components/share/Header/Header";
 import { InfoAbout } from "../components/InfoAbout/InfoAbout";
 import { HowItWork } from "../components/HowItWork/HowItWork";
 import { FeedBacks } from "../components/FeedBacks/FeedBacks";
-import { Footer } from "../components/Footer/Footer";
+import { Footer } from "../components/share/Footer/Footer";
 export const MainPage:React.FunctionComponent = () => {
   return (
   <>

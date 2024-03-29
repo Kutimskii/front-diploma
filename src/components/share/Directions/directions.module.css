@@ -1,0 +1,107 @@
+.input_direction,
+.input_date{
+  width: 325px;
+  height: 60px;
+  padding: 0 0 0 30px;
+  border: 1px solid rgba(41, 41, 41, 0.8);
+  border-radius: 3px;
+  font-size: 18px;
+}
+.input_direction_from_wrap,
+.input_direction_to_wrap,
+.input_date_from_wrap,
+.input_date_to_wrap{
+  position: relative;
+}
+.input_date_from_wrap{
+  margin-right: 35px;
+}
+.input_date_from_wrap_dp::before,
+.input_date_to_wrap_dp::before{
+  content:url(../../../img/icons/calendar_icon.png);
+}
+.input_direction::placeholder{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #E5E5E5;
+}
+.input_date::placeholder{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #E5E5E5;
+  text-transform: uppercase;
+}
+.input_direction_from_dp{
+position: relative;
+}
+.direction_wrap,
+.date_wrap{
+  display: flex;
+  justify-content: space-between;
+}
+.icon_change{
+  background-image: url(../../../img/icons/change_icon.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  transition: all 1s;
+}
+.btn_change_direction{
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.vidget_direction_title{
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #FFFFFF;
+  margin: 0 0 7px 0;
+}
+.vidget_btn_wrap{
+  display: flex;
+  justify-content: end;
+}
+.icon_change_reverse{
+  transform: rotate(180deg);
+}
+.btn_find_ticket:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.btn_find_ticket:active{
+  background-color: rgba(255, 168, 0, 0);
+  color: rgba(255, 168, 0, 1);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.input_direction_to_listCities{
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  top:100%;
+  width: 100%;
+  background-color: #FFFFFF;
+  position: absolute;
+  border: 1px solid rgba(41, 41, 41, 0.8);
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+}
+.input_direction_to_listCities_item{
+  padding-left: 30px;
+  font-size: 16px;
+}
+.input_direction_to_listCities_item:hover{
+  cursor: pointer;
+  background-color: rgba(255, 168, 0, 1);
+}
+.input_direction_to_listCities_disabled{
+  display: none;
+}

@@ -1,0 +1,245 @@
+
+.settingTickets{
+  display: flex;
+  padding: 43px 36px 0 28px;
+  flex-direction: column;
+  align-items: center;
+  width: 364px;
+  background-color:#3E3C41;
+}
+.date_travel_title{
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 7px 0;
+}
+.findTickets_facilities{
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top:28px;
+  padding: 25px 0 25px 48px;
+}
+.findTickets_facilities::before{
+  position:absolute;
+  left: -30px;
+  content: '';
+  width: 365px;
+  border-top: 1px solid #FFFFFF;
+}
+.findTickets_facilities_wrap{
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+}
+.findTickets_facilities_switch{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 29px;
+}
+.findTickets_facilities_switch_coupe_icon{
+  background-image: url(../../img/icons/facilities/coupe_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 17px;
+}
+.findTickets_facilities_switch_econom_icon{
+  background-image: url(../../img/icons/facilities/economSeat_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 17px;
+}
+.findTickets_facilities_switch_siting_icon{
+  background-image: url(../../img/icons/facilities/sitting_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.findTickets_facilities_switch_luxe_icon{
+  background-image: url(../../img/icons/facilities/luxe_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+}
+.findTickets_facilities_switch_wifi_icon{
+  background-image: url(../../img/icons/facilities/wifi_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 19px;
+}
+.findTickets_facilities_switch_express_icon{
+  background-image: url(../../img/icons/facilities/express_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+}
+.findTickets_facilities_switch_icon_wrap{
+  display: flex;
+}
+.findTickets_facilities_switch p{
+  margin: 0 0 0 34px;
+}
+
+.findTickets_price_text{
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.findTickets_price_slider_text{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-bottom: -20px;
+}
+
+.findTickets_from
+{
+  position: relative;
+  padding-top:20px;
+  padding-bottom:34px;
+  
+}
+.findTickets_there{
+  position: relative;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.findTickets_there::before,
+.findTickets_from::before{
+  position:absolute;
+  left: -30px;
+  content: '';
+  width: 365px;
+  border-top: 1px solid #FFFFFF;
+}
+.findTickets_there_text,
+.findTickets_from_text{
+  margin: 15px 0 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.findTickets_there_text_wrap,
+.findTickets_from_text_wrap{
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+.findTickets_there_text_title,
+.findTickets_from_text_title{
+  margin: 0px 0 0 12px;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.findTickets_there_text_iconArrow{
+  background-image: url(../../img/icons/departureArrow_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 26px;
+}
+.findTickets_from_text_iconArrow{
+  background-image: url(../../img/icons/departureArrow_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 26px;
+  transform: rotate(180deg);
+}
+.findTickets_there_text_iconMinus,
+.findTickets_from_text_iconMinus{
+  background-image: url(../../img/icons/minusInSquare_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.findTickets_there_text_iconPlus,
+.findTickets_from_text_iconPlus{
+  background-image: url(../../img/icons/plusInsquare_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.findTickets_there_text_iconMinus:hover,
+.findTickets_there_text_iconPlus:hover,
+.findTickets_from_text_iconMinus:hover,
+.findTickets_from_text_iconPlus:hover{
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(91%) sepia(91%) saturate(6930%) hue-rotate(311deg) brightness(103%) contrast(102%);
+}
+.findTickets_there_departureTime,
+.findTickets_from_departureTime,
+.findTickets_there_arrivalTime,
+.findTickets_from_arrivalTime{
+  height: 100px;
+  animation: fadeInFromNone 1s ;
+  margin: 0 0 15px 0;
+}
+@keyframes fadeInFromNone {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+
+  50%{
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    height: 100px;
+    opacity: 1;
+
+  }
+}
+.hiddenBlock{
+  display: none;
+  height: 0px;
+  animation: fade 1s;
+}
+@keyframes fade {
+  0% {
+    display: block;
+    height: 100px;
+    opacity: 0;
+  }
+
+
+  100% {
+    display: none;
+    height: 0px;
+    opacity: 0;
+
+  }
+}
+.findTickets_departureTime_text,
+.findTickets_arrivalTime_text{
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.findTickets_arrivalTime_text{
+  text-align: end;
+}

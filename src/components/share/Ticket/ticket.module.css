@@ -1,0 +1,95 @@
+h1,h2,h3 {
+ margin: 0;
+}
+.ticket{
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 47px;
+  border: #C4C4C4 1px solid;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.ticketItem{
+  width: 959px;
+  border: 1px solid #C4C4C4;
+}
+.ticketDirect{
+  width: 197px;
+  height: 100%;
+  background-color: #E4E0E9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 58px 0 0 26px;
+}
+.ticketDirectNumb{
+  margin: 17px 0 15px 0;
+}
+.ticketDirectCities{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+.ticketDirectIcon{
+  width: 86px;
+  height: 86px;
+  background-image: url('../../../img/icons/train_icon.png');
+  background-repeat: no-repeat;
+  background-position: contain;
+}
+.ticketDirectTime{
+  background-color: white;
+  display: flex;
+  padding: 54px 20px 20px 39px;
+  width: 480px;
+  border-right: #E5E5E5 1px solid;
+}
+.ticketDirectTimeDurationFromVector{
+  width:30px;
+  height: 20px;
+  background-image: url('../../../img/icons/vectorTo_icon.png');
+  background-repeat: no-repeat;
+  background-position: contain;
+  margin-top: 7px;
+}
+.ticketDirectTimeFromDuration{
+  margin: 0 39px 0 0;
+  font-size: 18px;
+  color:#C4C4C4 ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ticketDirectTimeFromCity,
+.ticketDirectTimeToCity{
+  font-size: 18px;
+}
+.ticketDirectTimeFromStation,
+.ticketDirectTimeToStation{
+  font-size: 16px;
+  color: #928F94;
+}
+.ticketDirectTimeFrom h2,
+.ticketDirectTimeTo h2{
+  font-size: 24px;
+}
+.ticketDirectTimeFrom{
+  width: 155px;
+}
+.ticketPricesBtn{
+  width: 228px;
+  height: 39px;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  background-color:rgba(255, 168, 0, 1);
+  border: rgba(255, 168, 0, 1) solid 1px;
+  border-radius: 5px;
+  margin-top: 35px;
+}
+.ticketPrices{
+  display: flex;
+  flex-direction: column;
+  padding: 49px 20px 23px 35px;
+}

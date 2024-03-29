@@ -1,5 +1,5 @@
-import { Header } from "../components/Header/Header";
-import { Footer } from "../components/Footer/Footer";
+import { Header } from "../components/share/Header/Header";
+import { Footer } from "../components/share/Footer/Footer";
 import { Tickets } from "../components/Tickets/Tickets";
 import { StepsOfOrder } from "../components/StepsOfOrder/StepsOfOrder";
 export const ChooseTrain:React.FunctionComponent = () => {
