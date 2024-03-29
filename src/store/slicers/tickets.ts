@@ -10,10 +10,8 @@ export const ticketsArgsSlice = createSlice({
   initialState,
   reducers: {
     saveArgs: (state : TArgsTickets, action: PayloadAction<TArgsTickets>) => {
-      // for (let key in action.payload!){
-      //   key ? state[key as keyof TArgsTickets ] = action.payload : ''
-      // }
-      return state = action.payload
+      state = action.payload
+      return state
     },
   },
 })
