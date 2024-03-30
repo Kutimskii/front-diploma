@@ -6,8 +6,9 @@ import { Loader } from '../share/Loader/Loader';
 import { saveArgs } from '../../store/slicers/tickets';
 import { TicketsFilter } from '../TicketsFilter/TicketsFilter';
 import { useState, useEffect } from 'react';
-import { TSortObj } from '../../types';
+import { TSortObj, TArgsTickets } from '../../types';
 import React from "react";
+import { TicketsPages } from '../share/TicketsPages/TicketsPages';
 import { Ticket } from '../share/Ticket/Ticket';
 export const Tickets:React.FunctionComponent = () => {
   const dispatch  = useDispatch();
@@ -20,6 +21,7 @@ export const Tickets:React.FunctionComponent = () => {
   const [sortType, setSortType] = useState<string>('date');
   const [sortListType, setSortListType] = useState<boolean>(false);
   const [sortLimit, setSortLimit] = useState<number>(5);
+  const [offset, setOffset] = useState<number>(5);
   const changeSortType = (e : React.MouseEvent<HTMLLIElement> ) => {
     const text = ((e.target as HTMLLIElement).outerText)
     const type = Object.keys(sortObj).find(k => sortObj[k as keyof TSortObj] === text)!
@@ -40,15 +42,12 @@ export const Tickets:React.FunctionComponent = () => {
       limit: sortLimit,
       sort: sortType
     }))
-  },[sortType,sortLimit])
-  // useEffect(()=> {
-  //   refetch()
-  // },[ticketArgs])
+  },[sortType,sortLimit, offset])
   
 console.log(data)
   return (
     <section className={styles.chooseTickets}>
-      {isLoading ? <Loader/> : 
+      { isLoading ? <Loader/> : 
       <main className={styles.tickets}>
         <TicketsFilter/>
         <div className={styles.findedTickets}>
@@ -84,14 +83,11 @@ console.log(data)
               {data?.items ? data?.items.map((item, index: number) => <Ticket wagon = {item} key = {index}/>) : null}
             </ul>
           </div>
-          <div className={styles.findedTicketsFromServerPages}>
-
-          </div>
+          <TicketsPages/>
         </div>
-      </main> 
-      }
-      
-      
+        
+      </main>}
+
     </section>
   )
 

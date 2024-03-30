@@ -44,7 +44,7 @@ export const DirectionsDate:React.FunctionComponent<TDirectionsDateProps> = ({da
                 getPopupContainer={(trigger:HTMLElement):HTMLElement => trigger.parentElement!}
                 placement="bottomRight"
                 placeholder="ДД/ММ/ГГГГ"
-                suffixIcon={<div className={styles.input_date_to_wrap_dp}></div>} 
+                suffixIcon={<div className='input_date_to_wrap_dp'></div>} 
                 style={{
                   width: '325px',
                   height: '60px',
