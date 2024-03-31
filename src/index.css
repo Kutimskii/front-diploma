@@ -76,3 +76,37 @@ body{
 .ant-tooltip-inner{
   box-shadow: none !important;
 }
+/* Pagination */
+
+.ant-pagination-next,
+.ant-pagination-prev{
+  padding-top: 5px;
+}
+.ant-pagination-item,
+.ant-pagination-next,
+.ant-pagination-prev{
+  border: 2px solid #C4C4C4 !important;
+}
+.ant-pagination-item:not(.ant-pagination-item-active):hover,
+.ant-pagination-prev:not([aria-disabled="true"]):hover,
+.ant-pagination-next:not([aria-disabled="true"]):hover{
+  border: 2px solid #FFA800 !important;
+}
+.ant-pagination-item:not(.ant-pagination-item-active) a:hover{
+  color: #FFA800 !important;
+}
+.ant-pagination-item-active{
+  border: none !important;
+  outline: none;
+}
+.ant-pagination-prev:not([aria-disabled="true"]) div:hover,
+.ant-pagination-next:not([aria-disabled="true"]) div:hover{
+  filter: brightness(0) saturate(100%) invert(61%) sepia(77%) saturate(1589%) hue-rotate(359deg) brightness(107%) contrast(106%);
+}
+/* .anticon-double-right{
+  display: none;
+  color: #FFA800 !important;
+}
+.ant-pagination-item-ellipsis:hover{
+ color: aqua !important;
+} */

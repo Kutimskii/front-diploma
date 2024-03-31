@@ -3,7 +3,6 @@ import ru from 'antd/es/date-picker/locale/ru_RU'
 import { useGetCitiesQuery } from "../../../store/slicers/tickets";
 import { ReactNode, useEffect, useState } from "react";
 import { TDirectionProps } from "../../../types";
-// import { useDispatch } from "react-redux";
 ru.lang.monthFormat="MMMM";
 export const Directions:React.FunctionComponent<TDirectionProps> = (
   {directFrom, directTo,
@@ -14,7 +13,6 @@ export const Directions:React.FunctionComponent<TDirectionProps> = (
    saveDirect, setDirectFromId,
    setDirectToId}) => {
     const [reverseDirect, setReverse ] = useState<boolean>(false);
-    // const dispatch = useDispatch();
     const {data} = useGetCitiesQuery(directFromFocus  && directFrom.length >= 1 ? 
     directFrom : directToFocus && directTo.length >= 1 ? directTo : 'м');
     const reverse = () => {

@@ -1,7 +1,38 @@
 .ticketsPages{
   display: flex;
+  justify-content: end;
 }
 .ticketsPages div {
-  width: 85px;
   height: 75px;
+}
+.ticketsPagesNextPageIcon{
+  background-image: url(../../../img/icons/nextPage_icon.png);
+  background-size: 18px 29px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.ticketsPagesPrevPageIcon{
+  background-image: url(../../../img/icons/prevPage_icon.png);
+  background-size: 18px 29px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.ticketsPagesJumpNext,
+.ticketsPagesJumpPrev{
+position: relative;
+}
+.ticketsPagesJumpNext div,
+.ticketsPagesJumpPrev div{
+  position: absolute;
+  top: -27%;
+  left: 25%;
+  font-size: 65px;
+}
+.ticketsPagesJumpNext:hover,
+.ticketsPagesJumpPrev:hover{
+color: #FFA800;
 }

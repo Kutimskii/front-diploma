@@ -5,12 +5,16 @@
 .tickets{
   display: flex;
   justify-content: center;
+  padding-bottom: 143px;
 }
 .findedTicketsFromServer{
   width: 960px;
 }
 .findedTickets{
   margin-left: 83px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .findedTicketsCountFilter{
