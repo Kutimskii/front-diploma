@@ -37,8 +37,8 @@ export type TSortObj = {
 export type TArgsTickets = {
   from_city_id?: string
   to_city_id?: string
-  date_start?: string | null
-  date_end?: string | null
+  date_start?: string | null | Dayjs
+  date_end?: string | null | Dayjs
   date_start_arrival?: string| null
   date_end_arrival?: string | null
   have_first_class?: boolean
@@ -50,14 +50,14 @@ export type TArgsTickets = {
   have_express?: boolean
   price_from?: number
   price_to?: number
-  start_departure_hour_from?: number
-  start_departure_hour_to?: number
-  start_arrival_hour_from?: number
-  start_arrival_hour_to?: number
-  end_departure_hour_from?: number
-  end_departure_hour_to?: number
-  end_arrival_hour_from?: number
-  end_arrival_hour_to?: number
+  start_departure_hour_from?: number | null
+  start_departure_hour_to?: number | null
+  start_arrival_hour_from?: number | null
+  start_arrival_hour_to?: number | null
+  end_departure_hour_from?: number | null
+  end_departure_hour_to?: number | null
+  end_arrival_hour_from?: number | null
+  end_arrival_hour_to?: number | null
   limit?: number
   offset?: number
   sort?: string

@@ -56,7 +56,7 @@ console.log(ticketArgs)
           <div className={styles.findedTicketsSetting}></div>
           <div className={styles.findedTicketsFromServer}>
             <div className={styles.findedTicketsCountFilter}>
-              <p className={styles.findedTicketsTotalCount}>найдено:{data?.items ? data?.items.length : 0}</p>
+              <p className={styles.findedTicketsTotalCount}>найдено:{data?.total_count}</p>
               <div className={styles.findedTicketsSort}>
                 <div className={styles.findedTicketsSortTypeTitleSort}>сортировать по:
                   <span onClick={() => setSortListType(prev => !prev)}>{sortObj[sortType as keyof TSortObj]}</span>

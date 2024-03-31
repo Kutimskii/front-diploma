@@ -28,7 +28,12 @@ export const TicketsFilter:React.FunctionComponent = () => {
   const [thirdClass, setThirdClass] = useState<boolean>(false);
   const [fourthClass, setFourthClass] = useState<boolean>(false);
   const [express, setExpress] = useState<boolean>(false);
-  console.log(ticketArgs)
+  const [price, setPrice] = useState<Array<number>>([1920,7000]);
+  const [startDeparture, setStartDeparture] = useState<Array<number>>([0, 24]);
+  const [startArrival, setStartArrival] = useState<Array<number>>([0, 24]);
+  const [endDeparture, setEndDeparture] = useState<Array<number>>([0, 24]);
+  const [endArrival, setEndArrival] = useState<Array<number>>([0, 24]);
+  console.log(startDeparture)
   useEffect(()=> {
     dispatch(saveArgs({
       from_city_id: filledFields.directionFromId,
@@ -44,8 +49,21 @@ export const TicketsFilter:React.FunctionComponent = () => {
       have_wifi: wifi,
       have_air_conditioning: airCond,
       have_express: express,
+      price_from:price[0],
+      price_to:price[1],
+      start_departure_hour_from: startDeparture[0],
+      start_departure_hour_to: startDeparture[1],
+      start_arrival_hour_from: startArrival[0],
+      start_arrival_hour_to: startArrival[1],
+      end_departure_hour_from: endDeparture[0],
+      end_departure_hour_to: endDeparture[1],
+      end_arrival_hour_from: endArrival[0],
+      end_arrival_hour_to: endArrival[1],
     }))
-  },[wifi,firstClass,secondClass,thirdClass,fourthClass,express])
+  },[wifi, firstClass, secondClass, thirdClass, 
+     fourthClass, express, price, startDeparture,
+     startArrival, endDeparture,endArrival
+    ])
   ru.lang.monthFormat="MMMM";
   const marks: SliderSingleProps['marks'] = {
     1920: {
@@ -241,6 +259,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                     max={7000}
                     marks={marks}
                     onChange={(e:Array<number>)=>{
+
                       if(e[0] > 3130 && e[1] < 5680){
                         return setVisible((['#FFF','#FFF']))
                       }
@@ -253,6 +272,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       if(e[0] < 3130 && e[1] > 5680){
                         setVisible((['rgba(0, 0, 0, 0)','rgba(0, 0, 0, 0)']))
                       }
+                      setPrice(e)
                     }}
                     range={{ draggableTrack: true }}
                     defaultValue={[1920, 7000]}
@@ -297,11 +317,12 @@ export const TicketsFilter:React.FunctionComponent = () => {
                     <h2 className={styles.findTickets_there_text_title}>Туда</h2>
                   </div>
                   <div className={departureThere ? styles.findTickets_there_text_iconMinus : styles.findTickets_there_text_iconPlus}
-                   onClick={()=> setDepartureThere(prev => !prev)}></div>
+                   onClick={() => setDepartureThere(prev => !prev)}></div>
                 </div>
                 <div className= {`${styles.findTickets_there_departureTime} ${departureThere ? '' : styles.hiddenBlock}`}>
                   <p className={styles.findTickets_departureTime_text}>Время отбытия</p>
                     <Slider
+                      onChange={(e: Array<number>) => setStartDeparture(e)}
                       min={0}
                       max={24}
                       range={{ draggableTrack: true }}
@@ -324,6 +345,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                 <div className={`${styles.findTickets_there_arrivalTime} ${departureThere ? '' : styles.hiddenBlock}`}>
                 <p className={styles.findTickets_arrivalTime_text}>Время прибытия</p>
                     <Slider
+                      onChange={(e: Array<number>) => setStartArrival(e)}
                       min={0}
                       max={24}
                       range={{ draggableTrack: true }}
@@ -381,6 +403,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                 <div className= {`${styles.findTickets_from_departureTime} ${departureFrom ? '' : styles.hiddenBlock}`}>
                   <p className={styles.findTickets_departureTime_text}>Время отбытия</p>
                     <Slider
+                     onChange={(e: Array<number>) => setEndDeparture(e)}
                       min={0}
                       max={24}
                       range={{ draggableTrack: true }}
@@ -403,6 +426,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
                 <div className={`${styles.findTickets_from_arrivalTime} ${departureFrom ? '' : styles.hiddenBlock}`}>
                 <p className={styles.findTickets_arrivalTime_text}>Время прибытия</p>
                     <Slider
+                    onChange={(e: Array<number>) => setEndArrival(e)}
                       min={0}
                       max={24}
                       range={{ draggableTrack: true }}
