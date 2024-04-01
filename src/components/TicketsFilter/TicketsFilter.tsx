@@ -14,7 +14,6 @@ import type { SliderSingleProps } from 'antd';
 import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
-  const ticketArgs = useSelector((state:RootState) => state.saveArgs);
   const dispatch  = useDispatch();
   const [dateStart, setDateStart] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
   const [dateEnd, setDateEnd ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
