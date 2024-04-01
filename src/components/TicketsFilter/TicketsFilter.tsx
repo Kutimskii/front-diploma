@@ -14,7 +14,7 @@ import type { SliderSingleProps } from 'antd';
 import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
-  const ticketArgs = useSelector((state:RootState) => state.saveArgs)
+  const ticketArgs = useSelector((state:RootState) => state.saveArgs);
   const dispatch  = useDispatch();
   const [dateStart, setDateStart] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
   const [dateEnd, setDateEnd ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
@@ -33,15 +33,18 @@ export const TicketsFilter:React.FunctionComponent = () => {
   const [startArrival, setStartArrival] = useState<Array<number>>([0, 24]);
   const [endDeparture, setEndDeparture] = useState<Array<number>>([0, 24]);
   const [endArrival, setEndArrival] = useState<Array<number>>([0, 24]);
-  console.log(startDeparture)
+  function formatDate (date:Dayjs | null) {
+    return `${date!.toDate().getFullYear()}-${date!.toDate().getMonth() + 1  < 10 ? '0' + (date!.toDate().getMonth() + 1) :
+    date!.toDate().getMonth() + 1}-${date!.toDate().getDate()}`
+  }
   useEffect(()=> {
     dispatch(saveArgs({
       from_city_id: filledFields.directionFromId,
       to_city_id: filledFields.directionToId,
       date_start: filledFields.dateFrom,
       date_end: filledFields.dateTo,
-      date_start_arrival: dateStart?.toDate().toString(),
-      date_end_arrival: dateEnd?.toDate().toString(),
+      date_start_arrival: dateStart ? formatDate (dateStart) : dateStart,
+      date_end_arrival: dateEnd ? formatDate (dateEnd) : dateEnd,
       have_first_class: firstClass,
       have_second_class: secondClass,
       have_third_class: thirdClass,

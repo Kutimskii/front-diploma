@@ -19,8 +19,8 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const [directFrom, setDirectFrom ] = useState(filledFields.directionFrom ? filledFields.directionFrom : '');
   const [directTo, setDirectTo ] = useState(filledFields.directionTo ? filledFields.directionTo : '');
-  const [directFromId, setDirectFromId ] = useState('');
-  const [directToId, setDirectToId ] = useState('');
+  const [directFromId, setDirectFromId ] = useState(filledFields.directionFromId ? filledFields.directionFromId : '');
+  const [directToId, setDirectToId ] = useState(filledFields.directionToId ? filledFields.directionToId : '');
   const [dateFrom, setDateFrom ] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
   const [dateTo, setDateTo ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
   const [directFromFocus, setDirectFromFocus ] = useState(false);
@@ -29,6 +29,11 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
     directFromFocus ? setDirectFrom(name.toUpperCase()) : setDirectTo(name.toUpperCase());
     directFromFocus ? setDirectFromId(id) : setDirectToId(id);
   }
+  function formatDate (date:Dayjs | null) {
+    return `${date!.toDate().getFullYear()}-${date!.toDate().getMonth() + 1  < 10 ? '0' + (date!.toDate().getMonth() + 1) :
+    date!.toDate().getMonth() + 1}-${date!.toDate().getDate()}`
+  }
+console.log(directFromId)
   const findTickets = (e: React.FormEvent<HTMLButtonElement>) => {
       e.preventDefault();
       navigate('/choosetrain')
@@ -37,8 +42,8 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
         directionTo: directTo,
         directionFromId: directFromId,
         directionToId: directToId,
-        dateFrom: dateFrom?.toDate().toString(),
-        dateTo: dateTo?.toDate().toString(),
+        dateFrom: dateFrom ? formatDate (dateFrom) : dateFrom,
+        dateTo: dateTo ? formatDate (dateTo) : dateTo,
       }))
       dispatch(saveArgs({
         from_city_id: directFromId,

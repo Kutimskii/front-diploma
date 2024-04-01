@@ -4,7 +4,6 @@ import { Pagination, ConfigProvider,PaginationProps } from 'antd';
 export const TicketsPages:
 React.FunctionComponent<{changeOffset:Function, totalCount:number | undefined, limit:number }>  = ({changeOffset, totalCount, limit}) => {
   const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
-    console.log(type)
     if (type === 'jump-next'){
       return <div className={styles.ticketsPagesJumpNext}><div >...</div></div>;
     }

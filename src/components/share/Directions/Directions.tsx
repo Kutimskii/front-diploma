@@ -19,10 +19,18 @@ export const Directions:React.FunctionComponent<TDirectionProps> = (
       setReverse(prev => !prev);
     }
     useEffect(()=> {
-      setDirectFrom(directTo)
-      setDirectTo(directFrom)
-      setDirectFromId(directToId)
-      setDirectToId(directFromId)
+      if (reverseDirect){
+        setDirectFrom(directTo)
+        setDirectTo(directFrom)
+        setDirectFromId(directToId)
+        setDirectToId(directFromId)
+      }else {
+        setDirectFrom(directFrom)
+        setDirectTo(directTo)
+        setDirectFromId(directFromId)
+        setDirectToId(directToId)
+      }
+
     },[reverseDirect])
     
   return (
