@@ -1,10 +1,10 @@
 import styles from './ticketsFilter.module.css';
 import { DatePicker } from 'antd';
-import { saveArgs } from '../../store/slicers/tickets';
+import { saveArgs } from '../../../store/slicers/tickets';
 import { useEffect } from 'react';
 import dayjs from 'dayjs';
 import { Dayjs } from "dayjs";
-import { RootState } from '../../store/store';
+import { RootState } from '../../../store/store';
 import { useSelector, useDispatch } from 'react-redux';
 import 'dayjs/locale/ru';
 import ru from 'antd/es/date-picker/locale/ru_RU';
@@ -15,8 +15,8 @@ import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const dispatch  = useDispatch();
-  const [dateStart, setDateStart] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
-  const [dateEnd, setDateEnd ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
+  const [dateStart, setDateStart] = useState<Dayjs | null>(null);
+  const [dateEnd, setDateEnd ] = useState<Dayjs | null>(null);
   const [departureThere, setDepartureThere] = useState<boolean>(false);
   const [departureFrom, setDepartureFrom] = useState<boolean>(false);
   const [visible, setVisible] = useState(['rgba(0, 0, 0, 0)','rgba(0, 0, 0, 0)'])
@@ -34,7 +34,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
   const [endArrival, setEndArrival] = useState<Array<number>>([0, 24]);
   function formatDate (date:Dayjs | null) {
     return `${date!.toDate().getFullYear()}-${date!.toDate().getMonth() + 1  < 10 ? '0' + (date!.toDate().getMonth() + 1) :
-    date!.toDate().getMonth() + 1}-${date!.toDate().getDate()}`
+    date!.toDate().getMonth() + 1}-${date!.toDate().getDate() < 10 ? '0' + date!.toDate().getDate() : date!.toDate().getDate()}`
   }
   useEffect(()=> {
     dispatch(saveArgs({
@@ -64,7 +64,8 @@ export const TicketsFilter:React.FunctionComponent = () => {
     }))
   },[wifi, firstClass, secondClass, thirdClass, 
      fourthClass, express, price, startDeparture,
-     startArrival, endDeparture,endArrival
+     startArrival, endDeparture,endArrival, dateStart,
+     dateEnd
     ])
   ru.lang.monthFormat="MMMM";
   const marks: SliderSingleProps['marks'] = {

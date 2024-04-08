@@ -26,6 +26,9 @@ export const getTicketsSlice = createApi({
     getCities: builder.query<TCities[], string>({
       query: (name) => `/routes/cities?name=${name}`,
     }),
+    getLastTickets: builder.query<void, void>({
+      query: () => `/routes/last`,
+    }),
     getTickets: builder.query<TTickets, TArgsTickets>({
       query: ({ 
         from_city_id ,
@@ -69,14 +72,14 @@ ${have_air_conditioning ? `&have_air_conditioning=${have_air_conditioning}` : ''
 ${have_express ? `&have_express=${have_express}` : ''}
 ${price_from ? `&price_from=${price_from}` : ''}
 ${price_to ? `&price_to=${price_to}` : ''}
-${start_departure_hour_from ? `&start_departure_hour_from=${start_departure_hour_from}` : ''}
-${start_departure_hour_to ? `&start_departure_hour_to=${start_departure_hour_to}` : ''}
-${start_arrival_hour_from ? `&start_arrival_hour_from=${start_arrival_hour_from}` : ''}
-${start_arrival_hour_to ? `&start_arrival_hour_to=${start_arrival_hour_to}` : ''}
-${end_departure_hour_from ? `&end_departure_hour_from=${end_departure_hour_from}` : ''}
-${end_departure_hour_to ? `&end_departure_hour_to=${end_departure_hour_to}` : ''}
-${end_arrival_hour_from ? `&end_arrival_hour_from=${end_arrival_hour_from}` : ''}
-${end_arrival_hour_to ? `&end_arrival_hour_to=${end_arrival_hour_to}` : ''}
+${`&start_departure_hour_from=${start_departure_hour_from}`}
+${`&start_departure_hour_to=${start_departure_hour_to}`}
+${`&start_arrival_hour_from=${start_arrival_hour_from}`}
+${`&start_arrival_hour_to=${start_arrival_hour_to}`}
+${`&end_departure_hour_from=${end_departure_hour_from}`}
+${`&end_departure_hour_to=${end_departure_hour_to}`}
+${`&end_arrival_hour_from=${end_arrival_hour_from}`}
+${`&end_arrival_hour_to=${end_arrival_hour_to}`}
 ${limit ? `&limit=${limit}` : ''}
 ${offset ? `&offset=${offset}` : ''}
 ${sort ? `&sort=${sort}` : ''}`}
@@ -84,7 +87,4 @@ ${sort ? `&sort=${sort}` : ''}`}
   }),
 });
 export const { saveArgs } = ticketsArgsSlice.actions
-export const {
-  useGetCitiesQuery,
-  useGetTicketsQuery
- } = getTicketsSlice;
+export const {useGetCitiesQuery, useGetTicketsQuery, useGetLastTicketsQuery} = getTicketsSlice;

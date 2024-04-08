@@ -15,6 +15,12 @@ export type TDirectionProps = {
   setDirectToId: React.Dispatch<React.SetStateAction<string>>
 
 }
+export type TStepsStateProp = {
+  1:string,
+  2:string,
+  3:string,
+  4:string
+}
 export type TDirectionsDateProps = {
   dateFrom: Dayjs | null
   dateTo: Dayjs | null

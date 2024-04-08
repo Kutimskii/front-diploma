@@ -2,7 +2,7 @@ import styles from "./directions_date.module.css";
 import ru from 'antd/es/date-picker/locale/ru_RU';
 ru.lang.monthFormat="MMMM";
 import { DatePicker } from 'antd';
-import { TDirectionsDateProps } from "../../../types";
+import { TDirectionsDateProps } from "../../../../types";
 
 export const DirectionsDate:React.FunctionComponent<TDirectionsDateProps> = ({dateFrom, dateTo, setDateFrom, setDateTo }) => {
     return (<div className= {styles.vidget_directionDate_container}>

@@ -1,0 +1,60 @@
+h1,div,button{
+  font-family: "Roboto", sans-serif;
+}
+.seats{
+  background-color: #F7F5F9;
+  padding-top: 95px;
+}
+.seatsTrains{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 143px;
+}
+.seatsChoiceTrainTo{
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.seatsChoice{
+  width: 959px;
+  margin-left: 83px;
+  display: flex;
+  flex-direction: column;
+
+}
+.trainToOtherTrain{
+  padding-left: 19px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+}
+.trainToOtherTrainIcon{
+  background-image: url(../../img/icons/departure_arrow_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 76px;
+  height: 60px;
+  margin-right: 10px;
+}
+.trainToOtherTrainBtn{
+  width: 323px;
+  height: 60px;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  border: black solid 1px;
+  border-radius: 5px;
+}
+.trainToTimeInfo{
+  height: 125px;
+  background-color: #F7F6F6;
+  display: flex;
+  align-items: center;
+}
+.trainToTimeInfoIcon{
+  background-image: url(../../img/icons/train_incolor_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}

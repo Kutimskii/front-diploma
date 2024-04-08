@@ -7,8 +7,8 @@ import { useState } from "react";
 import { saveSearch } from "../../../store/slicers/findFields";
 import { saveArgs } from "../../../store/slicers/tickets";
 import 'dayjs/locale/ru';
-import { Directions } from "../Directions/Directions";
-import { DirectionsDate } from "../DirectionsDate/DirectionsDate";
+import { Directions } from "./Directions/Directions";
+import { DirectionsDate } from "./DirectionsDate/DirectionsDate";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { Dayjs } from "dayjs";
@@ -22,7 +22,7 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
   const [directFromId, setDirectFromId ] = useState(filledFields.directionFromId ? filledFields.directionFromId : '');
   const [directToId, setDirectToId ] = useState(filledFields.directionToId ? filledFields.directionToId : '');
   const [dateFrom, setDateFrom ] = useState<Dayjs | null>(filledFields.dateFrom ? dayjs(filledFields.dateFrom) : null);
-  const [dateTo, setDateTo ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateFrom) : null);
+  const [dateTo, setDateTo ] = useState<Dayjs | null>(filledFields.dateTo ? dayjs(filledFields.dateTo) : null);
   const [directFromFocus, setDirectFromFocus ] = useState(false);
   const [directToFocus, setDirectToFocus ] = useState(false);
   const saveDirect = (name:string, id:string) => {
@@ -31,9 +31,8 @@ export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slog
   }
   function formatDate (date:Dayjs | null) {
     return `${date!.toDate().getFullYear()}-${date!.toDate().getMonth() + 1  < 10 ? '0' + (date!.toDate().getMonth() + 1) :
-    date!.toDate().getMonth() + 1}-${date!.toDate().getDate()}`
+    date!.toDate().getMonth() + 1}-${date!.toDate().getDate() < 10 ? '0' + date!.toDate().getDate() : date!.toDate().getDate()}`
   }
-console.log(directFromId)
   const findTickets = (e: React.FormEvent<HTMLButtonElement>) => {
       e.preventDefault();
       navigate('/choosetrain')
@@ -47,7 +46,9 @@ console.log(directFromId)
       }))
       dispatch(saveArgs({
         from_city_id: directFromId,
-        to_city_id: directToId
+        to_city_id: directToId,
+        date_start: dateFrom ? formatDate (dateFrom) : dateFrom,
+        date_end: dateTo ? formatDate (dateTo) : dateTo,
       }))
     }
   return (
@@ -80,7 +81,7 @@ console.log(directFromId)
           />
         </div>
         <div className={styles.vidget_btn_wrap}>
-            <button type="button" className={styles.btn_find_ticket} onClick={(e)=> findTickets(e)}>НАЙТИ БИЛЕТЫ</button>
+            <button type="button" className={`${styles.btn_find_ticket} btn`} onClick={(e)=> findTickets(e)}>НАЙТИ БИЛЕТЫ</button>
         </div>
       </form>
     </div>

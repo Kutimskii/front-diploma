@@ -10,6 +10,20 @@ body{
   margin: auto;
   max-width: 1920px;
 }
+.btn:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.btn:active{
+  background-color: rgba(255, 168, 0, 0);
+  color: rgba(255, 168, 0, 1);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.btn:disabled{
+  background-color:#918F94;
+  border: #918F94 solid 1px;
+  border-radius: 5px;
+}
  /* DatePicker  */
 .ant-picker-year-btn,
 .ant-picker-header-super-next-btn,

@@ -1,7 +1,9 @@
 import styles from './ticket.module.css'
 import { TTicket } from '../../../types'
 import React from 'react';
-export const Ticket:React.FunctionComponent <{wagon:TTicket}> = ({wagon}) => {
+import { useNavigate } from 'react-router-dom';
+export const TicketTrain:React.FunctionComponent <{wagon:TTicket}> = ({wagon}) => {
+const navigate = useNavigate();
 const durationHours  = Math.floor(wagon.departure.duration / 3600);
 const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600)*3600))/60
   return (
@@ -88,7 +90,7 @@ const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.
           {wagon.departure.have_fourth_class ? <div className = {styles.ticketPricesFacilitiesFourth}></div>: null}
 
         </div>
-        <button type="button" className={styles.ticketPricesBtn}>Выбрать места</button>
+        <button type="button" className={`${styles.ticketPricesBtn} btn`} onClick={()=>navigate('/chooseseats')}>Выбрать места</button>
       </div>
       
     </div>

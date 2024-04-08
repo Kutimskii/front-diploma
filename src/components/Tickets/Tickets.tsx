@@ -1,15 +1,15 @@
 import styles from './tickets.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { useGetTicketsQuery } from '../../store/slicers/tickets';
+import { useGetTicketsQuery, useGetLastTicketsQuery } from '../../store/slicers/tickets';
 import { Loader } from '../share/Loader/Loader';
 import { saveArgs } from '../../store/slicers/tickets';
-import { TicketsFilter } from '../TicketsFilter/TicketsFilter';
+import { TicketsFilter } from '../share/TicketsFilter/TicketsFilter';
 import { useState, useEffect } from 'react';
 import { TSortObj } from '../../types';
 import React from "react";
 import { TicketsPages } from '../share/TicketsPages/TicketsPages';
-import { Ticket } from '../share/Ticket/Ticket';
+import { TicketTrain } from './TicketTrain/TicketTrain';
 export const Tickets:React.FunctionComponent = () => {
   const dispatch  = useDispatch();
   const sortObj:TSortObj = {
@@ -35,18 +35,19 @@ export const Tickets:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const ticketArgs = useSelector((state:RootState) => state.saveArgs)
   const {data, isLoading} = useGetTicketsQuery(ticketArgs)
+  const{data:last}  = useGetLastTicketsQuery();
+  console.log(last)
   useEffect(()=> {
     dispatch(saveArgs({
       from_city_id: filledFields.directionFromId,
       to_city_id: filledFields.directionToId,
+      date_start: filledFields.dateFrom,
+      date_end: filledFields.dateTo,
       limit: sortLimit,
       sort: sortType,
       offset: offset
     }))
   },[sortType,sortLimit, offset])
-  
-console.log(data)
-console.log(ticketArgs)
   return (
     <section className={styles.chooseTickets}>
       { isLoading ? <Loader/> : 
@@ -82,7 +83,7 @@ console.log(ticketArgs)
               </div>
             </div>
             <ul className={styles.findedTicketsFromServerWrap}>
-              {data?.items ? data?.items.map((item, index: number) => <Ticket wagon = {item} key = {index}/>) : null}
+              {data?.items ? data?.items.map((item, index: number) => <TicketTrain wagon = {item} key = {index}/>) : null}
             </ul>
           </div>
           <TicketsPages
