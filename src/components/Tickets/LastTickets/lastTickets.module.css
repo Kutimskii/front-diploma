@@ -1,0 +1,15 @@
+ul {
+  padding: 0;
+}
+.lastTickets{
+  margin-top: 94px;
+  font-family: "Roboto", sans-serif;
+}
+.lastTicketsHeader{
+  font-weight: 500;
+  font-size: 30px;
+}
+.lastTicketsItem{
+  border: solid 1px #C4C4C4;
+  background-color: #FFFFFF;
+}

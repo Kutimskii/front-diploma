@@ -1,0 +1,52 @@
+.ticket{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 20px 20px 5px 20px;
+  height: 160px;
+  margin-bottom: 16px;
+  border: #C4C4C4 1px solid;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ticket:hover{
+  cursor: pointer;
+}
+.ticketDirectCities{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.ticketDirectRailways{
+  display: flex;
+  font-size: 16px;
+  color: #928F94;
+  justify-content: space-between;
+}
+.ticketFacilities{
+  display: flex;
+  justify-content: space-between;
+}
+.ticketPricesFacilities{
+  display: flex;
+  align-items: center;
+}
+.ticketPricesFacilities div{
+  margin-right: 10px;
+}
+.ticketPricesItemSeatArticle{
+  color: #928F94;
+  margin-left: 16px;
+  margin-right: 5px;
+}
+.ticketPricesItemSeatPrice{
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFA800;
+}
+.ticketPricesItemSeatCurrency{
+  font-size: 36px;
+  color: #928F94;
+}

@@ -7,9 +7,11 @@ import { saveArgs } from '../../store/slicers/tickets';
 import { TicketsFilter } from '../share/TicketsFilter/TicketsFilter';
 import { useState, useEffect } from 'react';
 import { TSortObj } from '../../types';
+import { useGetSeatsQuery } from '../../store/slicers/seats';
 import React from "react";
 import { TicketsPages } from '../share/TicketsPages/TicketsPages';
 import { TicketTrain } from './TicketTrain/TicketTrain';
+import { LastTickets } from './LastTickets/LastTickets';
 export const Tickets:React.FunctionComponent = () => {
   const dispatch  = useDispatch();
   const sortObj:TSortObj = {
@@ -35,8 +37,6 @@ export const Tickets:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const ticketArgs = useSelector((state:RootState) => state.saveArgs)
   const {data, isLoading} = useGetTicketsQuery(ticketArgs)
-  const{data:last}  = useGetLastTicketsQuery();
-  console.log(last)
   useEffect(()=> {
     dispatch(saveArgs({
       from_city_id: filledFields.directionFromId,
@@ -52,9 +52,11 @@ export const Tickets:React.FunctionComponent = () => {
     <section className={styles.chooseTickets}>
       { isLoading ? <Loader/> : 
       <main className={styles.tickets}>
-        <TicketsFilter/>
+        <div>
+          <TicketsFilter/>
+          <LastTickets/>
+        </div>
         <div className={styles.findedTickets}>
-          <div className={styles.findedTicketsSetting}></div>
           <div className={styles.findedTicketsFromServer}>
             <div className={styles.findedTicketsCountFilter}>
               <p className={styles.findedTicketsTotalCount}>найдено:{data?.total_count}</p>
@@ -83,7 +85,7 @@ export const Tickets:React.FunctionComponent = () => {
               </div>
             </div>
             <ul className={styles.findedTicketsFromServerWrap}>
-              {data?.items ? data?.items.map((item, index: number) => <TicketTrain wagon = {item} key = {index}/>) : null}
+              {data?.items ? data?.items.map((item, index: number) => <TicketTrain wagon = {item} key = {index} />) : null}
             </ul>
           </div>
           <TicketsPages

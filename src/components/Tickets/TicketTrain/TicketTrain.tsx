@@ -1,13 +1,42 @@
 import styles from './ticket.module.css'
+import LastStyles from './asLastTick.module.css'
+import { useDispatch, useSelector } from 'react-redux'
 import { TTicket } from '../../../types'
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../../store/store';
+import { saveTrain } from '../../../store/slicers/currentTrain';
 export const TicketTrain:React.FunctionComponent <{wagon:TTicket}> = ({wagon}) => {
+const dispatch = useDispatch()
 const navigate = useNavigate();
+const ticketArgs = useSelector((state:RootState) => state.saveArgs)
 const durationHours  = Math.floor(wagon.departure.duration / 3600);
-const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600)*3600))/60
-  return (
-  <li className={styles.ticket}>
+const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600) * 3600))/60
+const timeDeparture = (new Date(wagon.departure.from.datetime * 1000).getHours() < 10 ? '0' : '') + 
+  new Date(wagon.departure.from.datetime * 1000).getHours() + ':' + 
+  (new Date(wagon.departure.from.datetime * 1000).getMinutes() < 10 ? '0': '') + new Date(wagon.departure.from.datetime * 1000).getMinutes()
+const timeArrival = (new Date(wagon.departure.to.datetime * 1000).getHours() < 10 ? '0' : '') + 
+  new Date(wagon.departure.to.datetime * 1000).getHours() + ':' +  (new Date(wagon.departure.to.datetime * 1000).getMinutes() < 10 ? '0' : '') +
+  new Date(wagon.departure.to.datetime * 1000).getMinutes()
+const saveCurrentTrain = (wag:TTicket) => {
+  dispatch(saveTrain({
+    _id: wag.departure._id,
+    have_first_class: ticketArgs.have_first_class,
+    have_fourth_class: ticketArgs.have_fourth_class,
+    have_second_class: ticketArgs.have_second_class,
+    have_third_class: ticketArgs.have_third_class,
+    have_wifi: ticketArgs.have_wifi,
+    have_air_conditioning: ticketArgs.have_air_conditioning,
+    timeDepart:  timeDeparture,
+    timeArriv : timeArrival,
+    cityFrom: wagon.departure.from.city.name[0].toUpperCase() + wagon.departure.from.city.name.slice(1),
+    cityTo: wagon.departure.to.city.name[0].toUpperCase() + wagon.departure.to.city.name.slice(1)
+  }))
+  navigate('/chooseseats')
+}
+
+  return ( 
+    <li className={styles.ticket}>
     <div className = {styles.ticketDirect}>
       <div className = {styles.ticketDirectIcon}></div>
       <h2 className = {styles.ticketDirectNumb}>{wagon.departure.train.name}</h2>
@@ -18,13 +47,9 @@ const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.
           wagon.departure.to.city.name.slice(1)}</div>
       </div>
     </div>
-    <div className = {styles.ticketDirectTime}>
-      <div className = {styles.ticketDirectTimeFrom}>
-          <h2 >{`${(new Date(wagon.departure.from.datetime * 1000)
-            .getHours() < 10 ? '0' : '') + 
-            new Date(wagon.departure.from.datetime * 1000)
-            .getHours()}:${(new Date(wagon.departure.from.datetime * 1000).getMinutes() < 10 ? '0': '') + 
-            new Date(wagon.departure.from.datetime * 1000).getMinutes() }`}</h2>
+    <div className = {styles.ticketDirectTime }>
+      <div className = { styles.ticketDirectTimeFrom }>
+          <h2>{timeDeparture}</h2>
           <div className = {styles.ticketDirectTimeFromCity}>{wagon.departure.from.city.name[0].toUpperCase() + wagon.departure.from.city.name.slice(1)}</div>
           <div className = {styles.ticketDirectTimeFromStation}>{wagon.departure.from.railway_station_name} вокзал</div>
       </div>
@@ -35,11 +60,7 @@ const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.
         <div className = {styles.ticketDirectTimeDurationFromVector}></div>
       </div>
       <div className = {styles.ticketDirectTimeTo}>
-          <h2 >{`${(new Date(wagon.departure.to.datetime * 1000)
-            .getHours() < 10 ? '0' : '') + 
-            new Date(wagon.departure.to.datetime * 1000)
-            .getHours()}:${(new Date(wagon.departure.to.datetime * 1000).getMinutes() < 10 ? '0' : '') +
-            new Date(wagon.departure.to.datetime * 1000).getMinutes()}`}</h2>
+          <h2>{timeArrival}</h2>
           <div className = {styles.ticketDirectTimeToCity}>{wagon.departure.to.city.name[0].toUpperCase() + wagon.departure.to.city.name.slice(1)}</div>
           <div className = {styles.ticketDirectTimeToStation}>{wagon.departure.to.railway_station_name} вокзал</div>
       </div>
@@ -88,11 +109,11 @@ const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.
           {wagon.departure.have_second_class ? <div className = {styles.ticketPricesFacilitiesSecond}></div>: null}
           {wagon.departure.have_third_class ? <div className = {styles.ticketPricesFacilitiesThird}></div>: null}
           {wagon.departure.have_fourth_class ? <div className = {styles.ticketPricesFacilitiesFourth}></div>: null}
-
         </div>
-        <button type="button" className={`${styles.ticketPricesBtn} btn`} onClick={()=>navigate('/chooseseats')}>Выбрать места</button>
+        <button type="button" className={`${styles.ticketPricesBtn} btn`} onClick={() => saveCurrentTrain(wagon)}>Выбрать места</button>
       </div>
       
     </div>
-  </li>)
+   </li>
+  )
 }

@@ -31,6 +31,14 @@ export type TCities = {
   _id:string,
   name: string
 }
+export type TSearchTickets = {
+  directionFrom: string,
+  directionTo: string,
+  directionFromId: string,
+  directionToId: string,
+  dateFrom?: string | null ,
+  dateTo?: string | null ,
+}
 export type TTickets = {
   total_count: number,
   items: [],
@@ -144,4 +152,36 @@ have_air_conditioning: boolean
   have_wifi: boolean
   is_express: boolean
   min_price: number
+}
+export type TSeatsArgs = {
+  _id: string
+  have_first_class?: boolean
+  have_fourth_class?: boolean
+  have_second_class?: boolean
+  have_third_class?: boolean
+  have_wifi?: boolean
+  have_air_conditioning?: boolean
+  timeDepart?: string
+  timeArriv?: string
+  cityFrom?: string
+  cityTo?: string
+}
+export type TCoach = {
+  coach:{
+    available_seats: number
+    bottom_price: number
+    class_type: string
+    have_air_conditioning: boolean
+    have_wifi: boolean
+    is_linens_included: boolean
+    linens_price: number
+    name: string
+    price: number
+    side_price: number
+    top_price: number
+    train: string
+    wifi_price: number 
+    _id: string
+  }
+  seats:Array<{index: number, available: boolean}>
 }

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { TCities, TArgsTickets, TTickets } from "../../types";
+import { TCities, TArgsTickets, TTickets, TTicket } from "../../types";
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 const initialState: TArgsTickets = {
@@ -26,7 +26,7 @@ export const getTicketsSlice = createApi({
     getCities: builder.query<TCities[], string>({
       query: (name) => `/routes/cities?name=${name}`,
     }),
-    getLastTickets: builder.query<void, void>({
+    getLastTickets: builder.query<TTicket[], void>({
       query: () => `/routes/last`,
     }),
     getTickets: builder.query<TTickets, TArgsTickets>({

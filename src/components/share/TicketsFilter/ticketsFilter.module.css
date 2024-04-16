@@ -43,49 +43,49 @@
   margin-top: 29px;
 }
 .findTickets_facilities_switch_coupe_icon{
-  background-image: url(../../img/icons/facilities/coupe_icon.png);
+  background-image: url(../../../img/icons/facilities/coupe_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 17px;
 }
 .findTickets_facilities_switch_econom_icon{
-  background-image: url(../../img/icons/facilities/economSeat_icon.png);
+  background-image: url(../../../img/icons/facilities/economSeat_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 17px;
 }
 .findTickets_facilities_switch_siting_icon{
-  background-image: url(../../img/icons/facilities/sitting_icon.png);
+  background-image: url(../../../img/icons/facilities/sitting_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 24px;
 }
 .findTickets_facilities_switch_luxe_icon{
-  background-image: url(../../img/icons/facilities/luxe_icon.png);
+  background-image: url(../../../img/icons/facilities/luxe_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 20px;
 }
 .findTickets_facilities_switch_wifi_icon{
-  background-image: url(../../img/icons/facilities/wifi_icon.png);
+  background-image: url(../../../img/icons/facilities/wifi_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 19px;
 }
 .findTickets_facilities_switch_express_icon{
-  background-image: url(../../img/icons/facilities/express_icon.png);
+  background-image: url(../../../img/icons/facilities/express_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
   height: 20px;
 }
 .findTickets_facilities_switch_air_icon{
-  background-image: url(../../img/icons/facilities/facilities_air_icon.png);
+  background-image: url(../../../img/icons/facilities/facilities_air_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
@@ -158,14 +158,14 @@
   color: #FFFFFF;
 }
 .findTickets_there_text_iconArrow{
-  background-image: url(../../img/icons/departure_arrow_icon.svg);
+  background-image: url(../../../img/icons/departure_arrow_icon.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
   height: 26px;
 }
 .findTickets_from_text_iconArrow{
-  background-image: url(../../img/icons/departure_arrow_icon.svg);
+  background-image: url(../../../img/icons/departure_arrow_icon.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -174,7 +174,7 @@
 }
 .findTickets_there_text_iconMinus,
 .findTickets_from_text_iconMinus{
-  background-image: url(../../img/icons/minusInSquare_icon.png);
+  background-image: url(../../../img/icons/minusInSquare_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 20px;
@@ -182,7 +182,7 @@
 }
 .findTickets_there_text_iconPlus,
 .findTickets_from_text_iconPlus{
-  background-image: url(../../img/icons/plusInsquare_icon.png);
+  background-image: url(../../../img/icons/plusInsquare_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 20px;

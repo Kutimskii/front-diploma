@@ -1,13 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction, } from '@reduxjs/toolkit';
-type TSearchTickets = {
-  directionFrom: string,
-  directionTo: string,
-  directionFromId: string,
-  directionToId: string,
-  dateFrom?: string | null ,
-  dateTo?: string | null ,
-}
+import { TSearchTickets } from '../../types';
 const initialState = {
   directionFrom: '',
   directionTo: '',
@@ -33,5 +26,4 @@ export const searchTicketsSlice = createSlice({
 
 
 export const { saveSearch } = searchTicketsSlice.actions
-
 export default searchTicketsSlice.reducer
