@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { getTicketsSlice } from './slicers/tickets';
 import { searchTicketsSlice } from './slicers/findFields';
-import { currentTrainSlice } from './slicers/currentTrain';
+import { currentTrain } from './slicers/currentTrain';
 import { ticketsArgsSlice } from './slicers/tickets'; 
 import { getSeatsSlice } from './slicers/seats';
 export const store = configureStore({
@@ -10,7 +10,7 @@ export const store = configureStore({
   [getSeatsSlice.reducerPath]:getSeatsSlice.reducer,
   searchTickets: searchTicketsSlice.reducer,
   saveArgs: ticketsArgsSlice.reducer,
-  saveTrain: currentTrainSlice.reducer
+  saveTrain: currentTrain.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(getTicketsSlice.middleware, getSeatsSlice.middleware),

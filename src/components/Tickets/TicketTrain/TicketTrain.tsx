@@ -11,7 +11,7 @@ const dispatch = useDispatch()
 const navigate = useNavigate();
 const ticketArgs = useSelector((state:RootState) => state.saveArgs)
 const durationHours  = Math.floor(wagon.departure.duration / 3600);
-const durationMinutes = (wagon.departure.duration - (Math.floor(wagon.departure.duration / 3600) * 3600))/60
+const durationMinutes = (wagon.departure.duration - (durationHours * 3600)) / 60
 const timeDeparture = (new Date(wagon.departure.from.datetime * 1000).getHours() < 10 ? '0' : '') + 
   new Date(wagon.departure.from.datetime * 1000).getHours() + ':' + 
   (new Date(wagon.departure.from.datetime * 1000).getMinutes() < 10 ? '0': '') + new Date(wagon.departure.from.datetime * 1000).getMinutes()
@@ -30,7 +30,12 @@ const saveCurrentTrain = (wag:TTicket) => {
     timeDepart:  timeDeparture,
     timeArriv : timeArrival,
     cityFrom: wagon.departure.from.city.name[0].toUpperCase() + wagon.departure.from.city.name.slice(1),
-    cityTo: wagon.departure.to.city.name[0].toUpperCase() + wagon.departure.to.city.name.slice(1)
+    cityTo: wagon.departure.to.city.name[0].toUpperCase() + wagon.departure.to.city.name.slice(1),
+    railwayFrom: wagon.departure.from.railway_station_name + ' вокзал',
+    railwayTo: wagon.departure.to.railway_station_name + ' вокзал',
+    durationH: durationHours,
+    durationM: durationMinutes,
+    trainName: wag.departure.train.name
   }))
   navigate('/chooseseats')
 }

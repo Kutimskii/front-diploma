@@ -14,19 +14,21 @@ import type { SliderSingleProps } from 'antd';
 import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
+  const argsFilter = useSelector((state:RootState) => state.saveArgs)
+  console.log(argsFilter)
   const dispatch  = useDispatch();
   const [dateStart, setDateStart] = useState<Dayjs | null>(null);
   const [dateEnd, setDateEnd ] = useState<Dayjs | null>(null);
   const [departureThere, setDepartureThere] = useState<boolean>(false);
   const [departureFrom, setDepartureFrom] = useState<boolean>(false);
   const [visible, setVisible] = useState(['rgba(0, 0, 0, 0)','rgba(0, 0, 0, 0)'])
-  const [wifi, setWifi] = useState<boolean>(false);
-  const [airCond, setAirCond] = useState<boolean>(false);
-  const [firstClass, setFirstClass] = useState<boolean>(false);
-  const [secondClass, setSecondClass] = useState<boolean>(false);
-  const [thirdClass, setThirdClass] = useState<boolean>(false);
-  const [fourthClass, setFourthClass] = useState<boolean>(false);
-  const [express, setExpress] = useState<boolean>(false);
+  const [wifi, setWifi] = useState<boolean>(argsFilter.have_wifi ? argsFilter.have_wifi : false);
+  const [airCond, setAirCond] = useState<boolean>(argsFilter.have_air_conditioning ? argsFilter.have_air_conditioning : false);
+  const [firstClass, setFirstClass] = useState<boolean>(argsFilter.have_first_class ? argsFilter.have_first_class : false);
+  const [secondClass, setSecondClass] = useState<boolean>(argsFilter.have_second_class ? argsFilter.have_second_class : false);
+  const [thirdClass, setThirdClass] = useState<boolean>(argsFilter.have_third_class ? argsFilter.have_third_class : false);
+  const [fourthClass, setFourthClass] = useState<boolean>(argsFilter.have_fourth_class ? argsFilter.have_fourth_class : false);
+  const [express, setExpress] = useState<boolean>(argsFilter.have_express ? argsFilter.have_express : false);
   const [price, setPrice] = useState<Array<number>>([1920,7000]);
   const [startDeparture, setStartDeparture] = useState<Array<number>>([0, 24]);
   const [startArrival, setStartArrival] = useState<Array<number>>([0, 24]);
@@ -62,9 +64,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
       end_arrival_hour_from: endArrival[0],
       end_arrival_hour_to: endArrival[1],
     }))
-  },[wifi, firstClass, secondClass, thirdClass, 
+  },[wifi, firstClass, secondClass, thirdClass, airCond, 
      fourthClass, express, price, startDeparture,
-     startArrival, endDeparture,endArrival, dateStart,
+     startArrival, endDeparture, endArrival, dateStart,
      dateEnd
     ])
   ru.lang.monthFormat="MMMM";
@@ -171,7 +173,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_coupe_icon}></div>
                       <p className={styles.findTickets_facilities_switch_coupe_text}>Купе</p>
                     </div>
-                    <Switch onChange={(e) => setSecondClass(e)}
+                    <Switch
+                     value = {secondClass}
+                     onChange = {(e) => setSecondClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -179,7 +183,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_air_icon}></div>
                       <p className={styles.findTickets_facilities_switch_coupe_text}>Кондиционер</p>
                     </div>
-                    <Switch onChange={(e) => setAirCond(e)}
+                    <Switch
+                     value = {airCond}
+                     onChange = {(e) => setAirCond(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -187,7 +193,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                         <div className={styles.findTickets_facilities_switch_econom_icon}></div>
                         <p className={styles.findTickets_facilities_switch_econom_text}>Плацкарт</p>
                     </div>
-                    <Switch onChange={(e) => setThirdClass(e)}
+                    <Switch
+                     value = {thirdClass}
+                     onChange = {(e) => setThirdClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -196,7 +204,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                         <p className={styles.findTickets_facilities_switch_siting_text}>Сидячий</p>
                       </div>
 
-                    <Switch onChange={(e) => setFourthClass(e)}
+                    <Switch
+                     value= {fourthClass}
+                     onChange = {(e) => setFourthClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -206,7 +216,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <p className={styles.findTickets_facilities_switch_luxe_text}>Люкс</p>
                     </div>
                   
-                    <Switch onChange={(e) => setFirstClass(e)}
+                    <Switch
+                    value = {firstClass}
+                    onChange = {(e) => setFirstClass(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -214,7 +226,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_wifi_icon}></div>
                       <p className={styles.findTickets_facilities_switch_wifi_text}>Wi-Fi</p>
                     </div>
-                    <Switch onChange={(e) => setWifi(e)}
+                    <Switch
+                    value = {wifi}
+                    onChange = {(e) => setWifi(e)}
                     />
                   </div>
                   <div className={`${styles.findTickets_facilities_switch}`}>
@@ -222,7 +236,9 @@ export const TicketsFilter:React.FunctionComponent = () => {
                       <div className={styles.findTickets_facilities_switch_express_icon}></div>
                       <p className={styles.findTickets_facilities_switch_express_text}>Экспресс</p>
                     </div>
-                    <Switch onChange={(e) => setExpress(e)}
+                    <Switch 
+                    value = {express}
+                    onChange = {(e) => setExpress(e)}
                     />
                   </div>
                 </div>

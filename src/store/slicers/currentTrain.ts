@@ -1,20 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction, } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { TSeatsArgs } from '../../types';
-
 const initialState = {
   _id:''
 }
-export const currentTrainSlice = createSlice({
+export const currentTrain = createSlice({
   name: 'currentTrain',
   initialState,
   reducers: {
-    saveTrain: (state : TSeatsArgs, action: PayloadAction<TSeatsArgs>) => {
-      for (let key in action.payload){
-        (state[key as keyof TSeatsArgs ] as string | boolean ) = 
-        action.payload[key as keyof TSeatsArgs] as string | boolean
+    saveTrain: (state: TSeatsArgs, action: PayloadAction<TSeatsArgs>) => {
+      for (let key in action.payload) {
+        (state[key as keyof TSeatsArgs] as string | boolean) =
+          action.payload[key as keyof TSeatsArgs] as string | boolean;
       }
-      return state
+      return state;
       // state._id = action.payload._id
       // state.have_first_class = action.payload.have_first_class;
       // state.have_fourth_class = action.payload.have_fourth_class;
@@ -27,9 +26,6 @@ export const currentTrainSlice = createSlice({
       // state.cityTo = action.payload.cityTo
     },
   },
-})
-
-
-export const { saveTrain } = currentTrainSlice.actions
-
-export default currentTrainSlice.reducer
+});
+export const { saveTrain } = currentTrain.actions
+export default currentTrain.reducer

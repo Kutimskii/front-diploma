@@ -1,9 +1,19 @@
 h1,div,button{
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+h2{
+  margin-bottom: 5px;
 }
 .seats{
   background-color: #F7F5F9;
   padding-top: 95px;
+}
+.seatsChoiceHeader{
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 46px;
 }
 .seatsTrains{
   display: flex;
@@ -49,7 +59,9 @@ h1,div,button{
   height: 125px;
   background-color: #F7F6F6;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 35px 0 35px;
 }
 .trainToTimeInfoIcon{
   background-image: url(../../img/icons/train_incolor_icon.svg);
@@ -57,4 +69,109 @@ h1,div,button{
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
+}
+.seatsFromVector{
+  width:30px;
+  height: 20px;
+  background-image: url('../../img/icons/vectorTo_icon.png');
+  background-repeat: no-repeat;
+  background-position: contain;
+  margin-top: 7px;
+}
+.seatsDuration{
+  display: flex;
+}
+.seatsDurationIcon{
+  width:30px;
+  height: 30px;
+  background-image: url('../../img/icons/clockFace_icon.png');
+  background-repeat: no-repeat;
+  background-position: contain;
+  margin-top: 7px;
+  margin-right: 5px;
+}
+.seatsRailway{
+ color: #928F94;
+ font-size: 16px;
+}
+.seatsDepartInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-left: 35px;
+  border-left: solid 1px white;
+}
+.seatsArriveInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-right: 35px;
+  border-right: solid 1px white;
+}
+.trainToQuantityTicketsWrap{
+  display: flex;
+  margin-bottom: 49px;
+}
+
+.trainToQuantityTicketsAge{
+  height: 196px;
+  padding: 20px 35px 20px 30px;
+}
+.trainToQuantityTicketsAge:hover{
+  outline:1px solid #FFA800;
+
+}
+.trainToQuantityTicketsHeader{
+  padding-left: 19px;
+  margin-top: 40px;
+}
+.trainToQuantityTicketsAgeDescrip{
+  margin-top: 23px;
+  width: 240px;
+  font-weight: 400;
+  font-size: 16px;
+}
+.trainToQuantityTicketsAgeDescripChild{
+  color: #C4C4C4;
+}
+.trainToWagonsItem:hover{
+  cursor: pointer;
+}
+.trainToWagonType{
+  border-top: 1px solid #928F94;
+}
+
+.trainToWagons{
+  display: flex;
+
+}
+.trainToWagons .first{
+  background-image: url(../../../src/img/icons/wagonTypes/firstClassType_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.trainToWagons .second {
+  background-image: url(../../../src/img/icons/wagonTypes/secondClassType_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.trainToWagons .third {
+  background-image: url(../../../src/img/icons/wagonTypes/thirdClassType_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.trainToWagons .fourth {
+  background-image: url(../../../src/img/icons/wagonTypes/fourthClassType_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
 }

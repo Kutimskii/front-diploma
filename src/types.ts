@@ -165,6 +165,17 @@ export type TSeatsArgs = {
   timeArriv?: string
   cityFrom?: string
   cityTo?: string
+  railwayFrom?: string
+  railwayTo?: string
+  durationH?: number
+  durationM?: number
+  trainName?: string
+}
+export type TWagonType = {
+  first: string
+  second: string
+  third: string
+  fourth: string
 }
 export type TCoach = {
   coach:{
