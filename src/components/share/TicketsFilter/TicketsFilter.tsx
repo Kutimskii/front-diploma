@@ -67,8 +67,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
   },[wifi, firstClass, secondClass, thirdClass, airCond, 
      fourthClass, express, price, startDeparture,
      startArrival, endDeparture, endArrival, dateStart,
-     dateEnd
-    ])
+     dateEnd ])
   ru.lang.monthFormat="MMMM";
   const marks: SliderSingleProps['marks'] = {
     1920: {

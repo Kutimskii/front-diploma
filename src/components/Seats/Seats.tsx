@@ -1,7 +1,7 @@
 import styles from './seats.module.css'
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LastTickets } from '../Tickets/LastTickets/LastTickets';
 import { TicketsFilter } from '../share/TicketsFilter/TicketsFilter';
@@ -11,23 +11,36 @@ import { TSeatsArgs } from '../../types';
 import { InputNumber } from 'antd';
 import { TWagonType } from '../../types';
 import { ConfigProvider } from 'antd';
+import { WagonInfo } from './WagonInfo/WagonInfo';
 export const Seats:React.FunctionComponent = () => {
   const wagonType:TWagonType = {
-    first: 'Сидячий',
+    first: 'Люкс',
     second: 'Плацкарт',
     third: 'Купе',
-    fourth: 'Люкс'
+    fourth: 'Сидячий'
   }
+
   const seatsArgs:TSeatsArgs = useSelector((state:RootState) => state.saveTrain)
   const navigate = useNavigate();
   const {data} = useGetSeatsQuery(seatsArgs);
   const [adultCount, setAdultCount] = useState<number | null>(0);
   const [childCount, setchildCount] = useState<number | null>(0);
   const [freeChildCount, setfreeChildCount] = useState<number | null>(0);
-  const [firstClass, setFirstClass] = useState(false);
-  const [secondClass, setSecondClassClass] = useState(false);
-  const [thirdClass, setThirdClass] = useState(false);
-  const [fourthClass, setFourthClass] = useState(false);
+  // const [firstClass, setFirstClass] = useState(false);
+  // const [secondClass, setSecondClassClass] = useState(false);
+  // const [thirdClass, setThirdClass] = useState(false);
+  // const [fourthClass, setFourthClass] = useState(false);
+  const [activeType, setActiveType] = useState<string>('');
+  const [activeWagons, setActiveWagon] = useState<Array<string>>([]);
+  const avaliableTypes = Array.from(new Set(data?.map((el) => el.coach.class_type)))
+  const changeActiveWagon = (currentWagon: string) => {
+    if(activeWagons.includes(currentWagon)){
+      setActiveWagon(prev => prev.filter(el => el !== currentWagon))
+    }else {
+      setActiveWagon(prev => [...prev, currentWagon])
+    }
+
+  }
   console.log(data)
   return (
     <section className={styles.seats}>
@@ -129,17 +142,38 @@ export const Seats:React.FunctionComponent = () => {
                 <div className={styles.trainToWagonType}>
                   <h2 className={styles.trainToQuantityTicketsHeader}>Тип вагона</h2>
                   <ul className={styles.trainToWagons}>
-                    {data?.map(item => {
+                    {avaliableTypes?.map(item => {
                       return (
-                        <li className={styles.trainToWagonsItem} onClick={}>
-                          <div className={styles[item.coach.class_type]}></div>
-                          <p>{wagonType[item.coach.class_type as keyof TWagonType]}</p>
-                        </li>
-                        
-                      )
-                    })}
+                        <li className={`${styles.trainToWagonsItem} ${activeType.includes(item) ? styles.activeWagonsItem : ''}`}
+                        onClick={() => setActiveType(item)} >
+                          <div className = {styles[item]} ></div>
+                          <p>{wagonType[item as keyof TWagonType]}</p>
+                        </li>)})}
                   </ul>
                 </div>
+                <div className={styles.trainToWagonChoose}>
+                  <div>Вагоны {data?.map((el) => {
+                    if (activeType.includes(el.coach.class_type)){
+                      return <span className={`${styles.trainToWagonChooseItem} ${activeWagons.includes(el.coach._id) ? 
+                      styles.activeWagonItem : ''}`}
+                      onClick={() => changeActiveWagon(el.coach._id)}
+                    >{el.coach._id.slice(-2)}</span>
+                    }
+                  })}</div>
+                  <div>Нумерация вагонов начинается с головы поезда</div>
+                </div>
+                {activeWagons.map((wagon) => {
+                  let currentCoach = data?.filter(el => el.coach._id === wagon)[0]
+                  
+                  return (
+                    <WagonInfo
+                    currentCoach = {currentCoach!}
+                    wagon = {wagon}
+
+                    />
+                  )
+                })}
+                
               </div>
 
         </div>

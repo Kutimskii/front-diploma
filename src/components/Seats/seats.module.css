@@ -136,6 +136,12 @@ h2{
 .trainToQuantityTicketsAgeDescripChild{
   color: #C4C4C4;
 }
+.trainToWagonsItem{
+  color: #C4C4C4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .trainToWagonsItem:hover{
   cursor: pointer;
 }
@@ -145,7 +151,8 @@ h2{
 
 .trainToWagons{
   display: flex;
-
+  padding-left: 35px;
+  justify-content: space-evenly;
 }
 .trainToWagons .first{
   background-image: url(../../../src/img/icons/wagonTypes/firstClassType_icon.png);
@@ -153,6 +160,7 @@ h2{
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
+  margin-bottom: 15px;
 }
 .trainToWagons .second {
   background-image: url(../../../src/img/icons/wagonTypes/secondClassType_icon.png);
@@ -160,6 +168,7 @@ h2{
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
+  margin-bottom: 15px;
 }
 .trainToWagons .third {
   background-image: url(../../../src/img/icons/wagonTypes/thirdClassType_icon.png);
@@ -167,6 +176,7 @@ h2{
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
+  margin-bottom: 15px;
 }
 .trainToWagons .fourth {
   background-image: url(../../../src/img/icons/wagonTypes/fourthClassType_icon.png);
@@ -174,4 +184,243 @@ h2{
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
+  margin-bottom: 15px;
+}
+.activeWagonsItem{
+  filter: brightness(0) saturate(100%) invert(91%) sepia(91%) saturate(6930%) hue-rotate(311deg) brightness(103%) contrast(102%);
+}
+.trainToWagonChoose{
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 13px 0 34px;  
+  background-color:  rgba(255, 168, 0, 0.44);
+
+}
+.trainToWagonChooseItem{
+  margin-left: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.trainToWagonChooseItem:hover{
+  cursor: pointer;
+}
+.activeWagonItem {
+  color:white
+}
+.trainToWagonInfo{
+  display: flex;
+  justify-content: space-between;
+}
+.trainToWagonInfo h3{
+  margin-bottom: 20px;
+  color: #928F94;
+  font-size: 18px;
+  font-weight: 400;
+}
+.trainToWagonInfo h3 span{
+  color: black;
+}
+.trainToWagonInfoNumHead{
+  font-size: 72px;
+  font-weight: 700;
+}
+.trainToWagonInfoNumDescrip,
+.trainToWagonInfoSeats p,
+.trainToWagonInfoPrice p{
+  font-size: 24px;
+  font-weight: 400;
+}
+.trainToWagonInfoSeats p span {
+  font-size: 24px;
+  font-weight: 700;
+}
+.trainToWagonInfoPrice p span {
+  font-size: 24px;
+  color: #928F94;
+}
+.trainToWagonInfoNum{
+  padding: 30px 50px 30px 30px;
+  width: 190px;
+  height: 160px;
+  background-color:#FFD98F;
+}
+.trainToWagonInfoServise{
+  display: flex;
+  flex-direction: column;
+  padding-right: 59px;
+  align-items: center;
+}
+.trainToWagonInfoServiseFacilities{
+  display: flex;
+  justify-content: space-between;
+}
+.trainToWagonInfoServiseFacilitiesWifi{
+  appearance: none;
+  background-color: transparent;
+  background-image: url(../../../src/img/icons/wagonFacilities/wifi-service.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border-radius: 5px;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesAir{
+  appearance: none;
+  background-color: transparent;
+  background-image: url(../../../src/img/icons/wagonFacilities/air-service.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border-radius: 5px;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesTea{
+  appearance: none;
+  background-color: transparent;
+  background-image: url(../../../src/img/icons/wagonFacilities/food-service.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border-radius: 5px;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesLinen {
+  appearance: none;
+  background-color: transparent;
+  background-image: url(../../../src/img/icons/wagonFacilities/linen-service.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border-radius: 5px;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesWifi:hover,
+.trainToWagonInfoServiseFacilitiesAir:hover,
+.trainToWagonInfoServiseFacilitiesTea:hover,
+.trainToWagonInfoServiseFacilitiesLinen:hover {
+  cursor: pointer;
+  background-color: #FFA800;
+}
+.trainToWagonInfoServiseFacilitiesWifi:disabled{
+  appearance: none;
+  background-color:#FCDC9D;
+  background-image: url(../../../src/img/icons/wagonFacilities/wifi-service-disable.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  border: none;
+  height: 34px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesAir:disabled{
+  appearance: none;
+  background-color: #FCDC9D;
+  background-image: url(../../../src/img/icons/wagonFacilities/air-service-disable.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  border: none;
+  height: 34px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesTea:disabled{
+  appearance: none;
+  background-color: #FCDC9D;
+  background-image: url(../../../src/img/icons/wagonFacilities/food-service-disable.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  border: none;
+  height: 34px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesLinen:disabled{
+  appearance: none;
+  background-color: #FCDC9D;
+  background-image: url(../../../src/img/icons/wagonFacilities/linen-service-disable.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesWifi.activeWagonFacility{
+  appearance: none;
+  background-color:#FFA800;
+  background-image: url(../../../src/img/icons/wagonFacilities/wifi-service-active.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  border: none;
+  height: 34px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesAir.activeWagonFacility{
+  appearance: none;
+  background-color: #FFA800;
+  background-image: url(../../../src/img/icons/wagonFacilities/air-service-active.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesTea.activeWagonFacility{
+  appearance: none;
+  background-color: #FFA800;
+  background-image: url(../../../src/img/icons/wagonFacilities/food-service-active.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesLinen.activeWagonFacility{
+  appearance: none;
+  background-color: #FFA800;
+  background-image: url(../../../src/img/icons/wagonFacilities/linen-service-active.svg);
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trainToWagonInfoServiseFacilitiesWifi,
+.trainToWagonInfoServiseFacilitiesAir,
+.trainToWagonInfoServiseFacilitiesTea{
+  margin-right: 5px;
 }
