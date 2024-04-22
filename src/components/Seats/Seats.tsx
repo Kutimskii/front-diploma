@@ -15,8 +15,8 @@ import { WagonInfo } from './WagonInfo/WagonInfo';
 export const Seats:React.FunctionComponent = () => {
   const wagonType:TWagonType = {
     first: 'Люкс',
-    second: 'Плацкарт',
-    third: 'Купе',
+    second: 'Купе',
+    third: 'Плацкарт',
     fourth: 'Сидячий'
   }
 
@@ -164,13 +164,12 @@ export const Seats:React.FunctionComponent = () => {
                 </div>
                 {activeWagons.map((wagon) => {
                   let currentCoach = data?.filter(el => el.coach._id === wagon)[0]
-                  
                   return (
                     <WagonInfo
                     currentCoach = {currentCoach!}
-                    wagon = {wagon}
-
+                    wagonId = {wagon}
                     />
+                    
                   )
                 })}
                 

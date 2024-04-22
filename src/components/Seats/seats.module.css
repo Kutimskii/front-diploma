@@ -424,3 +424,13 @@ h2{
 .trainToWagonInfoServiseFacilitiesTea{
   margin-right: 5px;
 }
+.trainToWagonInfoServisePeople{
+  font-size: 16px;
+  padding: 13px;
+  margin-top: 20px;
+  width: 200px;
+  min-height: 72px;
+  background-color: #F3F3F3;
+  border: 1px solid #F3F3F3;
+  border-radius: 5px;
+}

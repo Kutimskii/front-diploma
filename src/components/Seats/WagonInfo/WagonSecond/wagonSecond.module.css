@@ -1,0 +1,64 @@
+.wagonSecondWrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.wagonSecond{
+  align-self: center;
+  position: relative;
+  /* padding: 0 20px 0 20px; */
+  background-image: url(../../../../img/wagonClasses/wagonClassSecond.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 920px;
+  height: 145px;
+
+}
+.wagonSecondNumCoach{
+  position: absolute;
+  padding: 0;
+  width: 33px;
+  height: 25px;
+  text-align: center;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 0;
+  top:0px;
+  left: 40px;
+}
+.wagonSecondNum{
+  position: absolute;
+  width: 27px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.wagonSecondNum:not(:disabled):hover{
+  cursor: pointer;
+  border: 1px solid #FFA800;
+}
+.wagonSecondNum:disabled{
+  background-color: #918F94;
+  color: white;
+}
+.wagonSecondPrice{
+  margin-top: 19px;
+  padding-right: 25px;
+  align-self: flex-end;
+  color: #FFA800;
+  font-size: 24px;
+  font-weight: 700;
+}
+.wagonSecondPrice span{
+  font-weight: 400;
+  color: #928F94;
+}
+.wagonSecondNumAdded{
+  border: 1px solid #FFA800;
+}
