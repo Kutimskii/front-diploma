@@ -12,8 +12,8 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
   let seats = Array.from(coach.seats)
-  if (seats.length < 18) {
-      for (let i = seats.length + 1; i <= 18; i++){
+  if (seats.length < 16) {
+      for (let i = seats.length + 1; i <= 16; i++){
         seats.push({index: i, available: false})      
     }   
   }
@@ -34,7 +34,7 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
     (linen && !coach.coach.is_linens_included ? coach.coach.linens_price : 0) + sum)
   },[wifi, linen, choosenSeats])
  const seatsFirst =[
-    {left:133},
+    {left:132},
     {left:193},
     {left:223},
     {left:282},
@@ -65,7 +65,7 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
               styles.wagonFirstNumAdded : ''}` }
             style={{
               top:`29px`,
-              left:`${seatsFirst[ind]}px`
+              left:`${seatsFirst[ind].left}px`
           }} disabled={!el.available} 
           onClick={() => changeSeats(el.index, el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
         )

@@ -21,15 +21,20 @@ export const WagonInfo:React.FunctionComponent<{currentCoach:TCoach, wagonId:str
     </div>
     <div className = {styles.trainToWagonInfoSeats}>
       <h3>Meста <span>{currentCoach?.coach.available_seats}</span></h3>
-      <p>Верхние <span>{currentCoach?.seats.filter((el) => el.index % 2 === 0 && el.available).length}</span></p>
-      <p>Нижние <span>{currentCoach?.seats.filter((el) => el.index % 2 !== 0 && el.available).length}</span></p>
+      {(currentCoach?.coach.class_type !=='first' && currentCoach?.coach.class_type !=='fourth') &&
+      <>
+        <p>Верхние <span>{currentCoach?.seats.filter((el) => el.index % 2 === 0 && el.available).length}</span></p>
+        <p>Нижние <span>{currentCoach?.seats.filter((el) => el.index % 2 !== 0 && el.available).length}</span></p>
+      </>
+      }
+      
       {currentCoach?.coach.class_type ==='third' &&
       <p>Боковые <span>{currentCoach?.seats.filter((el) => el.index > 32 ).length}</span></p>
       }
     </div>
     <div className = {styles.trainToWagonInfoPrice}>
       <h3 >Стоимость</h3>
-      <p> {currentCoach?.coach.top_price} <span>&#8381;</span></p>
+      {currentCoach?.coach.class_type ==='first'? null : <p> {currentCoach?.coach.top_price} <span>&#8381;</span></p>}
       <p> {currentCoach?.coach.bottom_price} <span>&#8381;</span></p>
     </div>
     <div className = {styles.trainToWagonInfoServise}>

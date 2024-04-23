@@ -63,7 +63,7 @@ export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wi
             <button className={`${styles.wagonSecondNum} ${choosenSeats.filter(item => item.index === el.index).length ? 
               styles.wagonSecondNumAdded : ''}` }
             style={{
-              top:`${el.index % 2 === 0 ? '29' : '59'}px`,
+              top:`${el.index % 2 === 0 ? '28' : '59'}px`,
               left:`${seatsSecond[ind - Math.ceil(ind/2)].left}px`
           }} disabled={!el.available} 
           onClick={() => changeSeats(el.index, el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
