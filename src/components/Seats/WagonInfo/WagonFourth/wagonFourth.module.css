@@ -1,14 +1,12 @@
-.wagonThirdWrap{
+.wagonFourthWrap{
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-
-.wagonThird{
+.wagonFourth{
   align-self: center;
   position: relative;
-  background-image: url(../../../../img/wagonClasses/wagonClassThird.png);
+  background-image: url(../../../../img/wagonClasses/wagonClassFourth.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +14,7 @@
   height: 145px;
 
 }
-.wagonSecondNumCoach{
+.wagonFourthNumCoach{
   position: absolute;
   padding: 0;
   width: 33px;
@@ -29,35 +27,24 @@
   top:0px;
   left: 40px;
 }
-.wagonSecondNum{
+.wagonFourthNum{
   position: absolute;
   width: 27px;
-  height: 30px;
+  height: 20x;
   border: none;
   padding: 0;
   font-weight: 700;
   font-size: 16px;
 }
-.wagonThirdNum{
-  position: absolute;
-  width: 43px;
-  height: 25px;
-  border: none;
-  padding: 0;
-  font-weight: 700;
-  font-size: 16px;
-}
-.wagonSecondNum:not(:disabled):hover,
-.wagonThirdNum:not(:disabled):hover{
+.wagonFourthNum:not(:disabled):hover{
   cursor: pointer;
-  border: 1px solid #FFA800;
+  outline: 1px solid #FFA800;
 }
-.wagonSecondNum:disabled,
-.wagonThirdNum:disabled{
+.wagonFourthNum:disabled{
   background-color: #918F94;
   color: white;
 }
-.wagonSecondPrice{
+.wagonFourthPrice{
   margin-top: 19px;
   padding-right: 25px;
   align-self: flex-end;
@@ -65,11 +52,10 @@
   font-size: 24px;
   font-weight: 700;
 }
-.wagonSecondPrice span{
+.wagonFourthPrice span{
   font-weight: 400;
   color: #928F94;
 }
-.wagonSecondNumAdded,
-.wagonThirdNumAdded{
-  border: 1px solid #FFA800;
+.wagonFourthNumAdded{
+  outline: 1px solid #FFA800;
 }

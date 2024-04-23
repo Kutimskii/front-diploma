@@ -142,10 +142,10 @@ export const Seats:React.FunctionComponent = () => {
                 <div className={styles.trainToWagonType}>
                   <h2 className={styles.trainToQuantityTicketsHeader}>Тип вагона</h2>
                   <ul className={styles.trainToWagons}>
-                    {avaliableTypes?.map(item => {
+                    {avaliableTypes?.map((item, ind) => {
                       return (
                         <li className={`${styles.trainToWagonsItem} ${activeType.includes(item) ? styles.activeWagonsItem : ''}`}
-                        onClick={() => setActiveType(item)} >
+                        onClick={() => setActiveType(item)} key = {ind}>
                           <div className = {styles[item]} ></div>
                           <p>{wagonType[item as keyof TWagonType]}</p>
                         </li>)})}

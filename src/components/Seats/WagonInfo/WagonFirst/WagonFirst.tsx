@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './wagonSecond.module.css'
+import styles from './wagonFirst.module.css'
 import { TCoach } from "../../../../types";
 type TWagonSeatsProps ={
   coach:TCoach, 
@@ -8,12 +8,12 @@ type TWagonSeatsProps ={
   food: boolean,
   linen:boolean
 }
-export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, air, food, linen}) => {
+export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, air, food, linen}) => {
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
   let seats = Array.from(coach.seats)
-  if (seats.length < 32) {
-      for (let i = seats.length + 1; i <= 32; i++){
+  if (seats.length < 18) {
+      for (let i = seats.length + 1; i <= 18; i++){
         seats.push({index: i, available: false})      
     }   
   }
@@ -33,7 +33,7 @@ export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wi
     setFinishPrice((wifi ? coach.coach.wifi_price : 0) + 
     (linen && !coach.coach.is_linens_included ? coach.coach.linens_price : 0) + sum)
   },[wifi, linen, choosenSeats])
- const seatsSecond =[
+ const seatsFirst =[
     {left:133},
     {left:193},
     {left:223},
@@ -51,20 +51,21 @@ export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wi
     {left:759},
     {left:820},
     {left:0},
+    {left:0},
 
   ]
   return (
-  <div className={styles.wagonSecondWrap}>
-    <div className={styles.wagonSecond}>
-      <div className={styles.wagonSecondNumCoach}>{coach.coach._id.slice(-2)}</div>
-      <div className={styles.wagonSecondSeats}>
+  <div className={styles.wagonFirstWrap}>
+    <div className={styles.wagonFirst}>
+      <div className={styles.wagonFirstNumCoach}>{coach.coach._id.slice(-2)}</div>
+      <div className={styles.wagonFirstSeats}>
         {seats.map((el, ind) => {
         return (
-            <button className={`${styles.wagonSecondNum} ${choosenSeats.filter(item => item.index === el.index).length ? 
-              styles.wagonSecondNumAdded : ''}` }
+            <button className={`${styles.wagonFirstNum} ${choosenSeats.filter(item => item.index === el.index).length ? 
+              styles.wagonFirstNumAdded : ''}` }
             style={{
-              top:`${el.index % 2 === 0 ? '29' : '59'}px`,
-              left:`${seatsSecond[ind - Math.ceil(ind/2)].left}px`
+              top:`29px`,
+              left:`${seatsFirst[ind]}px`
           }} disabled={!el.available} 
           onClick={() => changeSeats(el.index, el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
         )
@@ -72,7 +73,7 @@ export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wi
       </div>
 
     </div>
-    <div className={styles.wagonSecondPrice}>
+    <div className={styles.wagonFirstPrice}>
       {finishPrice}<span>&#8381;</span>
     </div>
   </div>

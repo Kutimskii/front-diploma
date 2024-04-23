@@ -5,6 +5,8 @@ import { TCoach } from '../../../types';
 import { Tooltip } from 'antd';
 import { WagonSecond } from './WagonSecond/WagonSecond';
 import { WagonThird } from './WagonThird/WagonThird';
+import { WagonFourth } from './WagonFourth/WagonFourth';
+import { WagonFirst } from './WagonFirst/WagonFirst';
 export const WagonInfo:React.FunctionComponent<{currentCoach:TCoach, wagonId:string}> = ({currentCoach, wagonId}) => {
   const [activeWifi, setActiveWifi] = useState (false)
   const [activeAir, setActiveAir] = useState (false)
@@ -68,6 +70,22 @@ export const WagonInfo:React.FunctionComponent<{currentCoach:TCoach, wagonId:str
     /> : null}
       {currentCoach.coach.class_type ==='third' ? 
     <WagonThird
+      coach = {currentCoach}
+      wifi={activeWifi}
+      linen={activeLinen}
+      air={activeAir}
+      food={activeFood}
+    /> : null}
+    {currentCoach.coach.class_type ==='fourth' ? 
+    <WagonFourth
+      coach = {currentCoach}
+      wifi={activeWifi}
+      linen={activeLinen}
+      air={activeAir}
+      food={activeFood}
+    /> : null}
+    {currentCoach.coach.class_type ==='first' ? 
+    <WagonFirst
       coach = {currentCoach}
       wifi={activeWifi}
       linen={activeLinen}

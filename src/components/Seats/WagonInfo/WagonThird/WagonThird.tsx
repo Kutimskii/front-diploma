@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './wagonSecond.module.css'
+import styles from './wagonThird.module.css'
 import { TCoach } from "../../../../types";
 type TWagonSeatsProps ={
   coach: TCoach, 
@@ -11,6 +11,13 @@ type TWagonSeatsProps ={
 export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, linen}) => {
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
+  let seats = Array.from(coach.seats)
+  if (seats.length < 48) {
+      for (let i = seats.length + 1; i <= 48; i++){
+        seats.push({index: i, available: true})      
+    }   
+  }
+  console.log(seats)
   const changeSeats = (ind:number, price:number) => {
     if(choosenSeats.filter(item => item.index === ind).length){
       setChoosenSeats(prev => prev.filter(item => item.index !== ind))
@@ -45,43 +52,32 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
     {left:759},
     {left:820},
   ]
+  const seatsThirdSide = [
+    {left:133},
+    {left:177},
+    {left:223},
+    {left:266},
+    {left:312},
+    {left:356},
+    {left:402},
+    {left:445},
+    {left:491},
+    {left:535},
+    {left:581},
+    {left:624},
+    {left:669},
+    {left:714},
+    {left:759},
+    {left:802},
+  ]
   return (
-  <div className={styles.wagonSecondWrap}>
-    <div className={styles.wagonSecond}>
+  <div className={styles.wagonThirdWrap}>
+    <div className={styles.wagonThird}>
       <div className={styles.wagonSecondNumCoach}>{coach.coach._id.slice(-2)}</div>
       <div className={styles.wagonSecondSeats}>
-      
-      <button className={styles.wagonSecondNum}
-      style={{
-        top:`28px`,
-        left:`${seatsSecond[12].left}px`
-        }} disabled>26</button>
-      <button className={styles.wagonSecondNum} style={{
-        top:`58px`,
-        left:`${seatsSecond[13].left}px`
-        }} disabled>27</button>
-            <button className={styles.wagonSecondNum} style={{
-        top:`28px`,
-        left:`${seatsSecond[13].left}px`
-        }} disabled>28</button>
-            <button className={styles.wagonSecondNum} style={{
-        top:`58px`,
-        left:`${seatsSecond[14].left}px`
-        }} disabled>29</button>
-            <button className={styles.wagonSecondNum} style={{
-        top:`28px`,
-        left:`${seatsSecond[14].left}px`
-        }} disabled>30</button>
-            <button className={styles.wagonSecondNum} style={{
-        top:`58px`,
-        left:`${seatsSecond[15].left}px`
-        }} disabled>31</button>
-            <button className={styles.wagonSecondNum} style={{
-        top:`28px`,
-        left:`${seatsSecond[15].left}px`
-        }} disabled>32</button>
-        {coach?.seats.map((el, ind) => {
-        return (
+        {seats.map((el, ind, arr) => {
+        if(el.index <= 32 ){
+          return (
             <button className={`${styles.wagonSecondNum} ${choosenSeats.filter(item => item.index === el.index).length ? 
               styles.wagonSecondNumAdded : ''}` }
             style={{
@@ -89,7 +85,20 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
               left:`${seatsSecond[ind - Math.ceil(ind/2)].left}px`
           }} disabled={!el.available} 
           onClick={() => changeSeats(el.index, el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
-        )
+          )
+        }else {
+          return (
+            <button className={`${styles.wagonThirdNum} ${choosenSeats.filter(item => item.index === el.index).length ? 
+              styles.wagonThirdNumAdded : ''}` }
+            style={{
+              top:`113px`,
+              left:`${seatsThirdSide[ind - 32].left}px`
+          }} disabled={!el.available} 
+          onClick={() => changeSeats(el.index, el.index > 32 ? coach.coach.side_price :
+            el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
+          )
+        }
+        
       })}
       </div>
 
