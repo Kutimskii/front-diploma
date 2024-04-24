@@ -2,6 +2,7 @@ import { Route,Routes,HashRouter } from 'react-router-dom';
 import { MainPage } from './pages/MainPage';
 import { ChooseTrain } from './pages/ChooseTrain';
 import { ChooseSeats } from './pages/ChooseSeats';
+import { PassengersPage } from './pages/PassengersPage';
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
         <Route path = '/' element = {<MainPage/>}></Route>
         <Route path = '/choosetrain' element = {<ChooseTrain/>}></Route>
         <Route path = '/chooseseats' element = {<ChooseSeats/>}></Route>
+        <Route path = '/passengers' element = {<PassengersPage/>}></Route>
       </Routes>
     </HashRouter>
   </> );

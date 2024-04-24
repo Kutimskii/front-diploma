@@ -1,0 +1,15 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.passengers{
+  background-color: #F7F5F9;
+  padding-top: 95px;
+}
+
+.passengersWrap{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 143px;
+}

@@ -2,7 +2,6 @@ import styles from './ticketsFilter.module.css';
 import { DatePicker } from 'antd';
 import { saveArgs } from '../../../store/slicers/tickets';
 import { useEffect } from 'react';
-import dayjs from 'dayjs';
 import { Dayjs } from "dayjs";
 import { RootState } from '../../../store/store';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,7 +14,6 @@ import { useState } from 'react';
 export const TicketsFilter:React.FunctionComponent = () => {
   const filledFields = useSelector((state:RootState) => state.searchTickets);
   const argsFilter = useSelector((state:RootState) => state.saveArgs)
-  console.log(argsFilter)
   const dispatch  = useDispatch();
   const [dateStart, setDateStart] = useState<Dayjs | null>(null);
   const [dateEnd, setDateEnd ] = useState<Dayjs | null>(null);
@@ -470,11 +468,7 @@ export const TicketsFilter:React.FunctionComponent = () => {
 
           </div>
         </div>
-        <div className={styles.lastTickets}>
-
-        </div>
       </aside>
-      <main className={styles.tickets}></main>
     </section>
   )
 

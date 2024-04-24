@@ -34,8 +34,10 @@ export const WagonInfo:React.FunctionComponent<{currentCoach:TCoach, wagonId:str
     </div>
     <div className = {styles.trainToWagonInfoPrice}>
       <h3 >Стоимость</h3>
-      {currentCoach?.coach.class_type ==='first'? null : <p> {currentCoach?.coach.top_price} <span>&#8381;</span></p>}
+      {currentCoach?.coach.class_type ==='first' ? null : 
+      <p> {currentCoach?.coach.top_price} <span>&#8381;</span></p>}
       <p> {currentCoach?.coach.bottom_price} <span>&#8381;</span></p>
+      <p> {currentCoach?.coach.side_price} <span>&#8381;</span></p>
     </div>
     <div className = {styles.trainToWagonInfoServise}>
       <h3 className = {styles.trainToWagonInfoServiseHead}>Обслуживание</h3>

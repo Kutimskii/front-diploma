@@ -1,6 +1,6 @@
 import styles from './seats.module.css'
-import React from "react";
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LastTickets } from '../Tickets/LastTickets/LastTickets';
@@ -12,6 +12,7 @@ import { InputNumber } from 'antd';
 import { TWagonType } from '../../types';
 import { ConfigProvider } from 'antd';
 import { WagonInfo } from './WagonInfo/WagonInfo';
+import  { savePassengers } from '../../store/slicers/passengers';
 export const Seats:React.FunctionComponent = () => {
   const wagonType:TWagonType = {
     first: 'Люкс',
@@ -19,17 +20,15 @@ export const Seats:React.FunctionComponent = () => {
     third: 'Плацкарт',
     fourth: 'Сидячий'
   }
-
+  const dispatch = useDispatch();
   const seatsArgs:TSeatsArgs = useSelector((state:RootState) => state.saveTrain)
+  const passengers = useSelector((state:RootState) => state.savePassengers)
   const navigate = useNavigate();
   const {data} = useGetSeatsQuery(seatsArgs);
   const [adultCount, setAdultCount] = useState<number | null>(0);
   const [childCount, setchildCount] = useState<number | null>(0);
   const [freeChildCount, setfreeChildCount] = useState<number | null>(0);
-  // const [firstClass, setFirstClass] = useState(false);
-  // const [secondClass, setSecondClassClass] = useState(false);
-  // const [thirdClass, setThirdClass] = useState(false);
-  // const [fourthClass, setFourthClass] = useState(false);
+
   const [activeType, setActiveType] = useState<string>('');
   const [activeWagons, setActiveWagon] = useState<Array<string>>([]);
   const avaliableTypes = Array.from(new Set(data?.map((el) => el.coach.class_type)))
@@ -41,12 +40,22 @@ export const Seats:React.FunctionComponent = () => {
     }
 
   }
-  console.log(data)
+  useEffect(() => {
+    dispatch(savePassengers({
+      passengers:{
+        adult: adultCount,
+        child: childCount,
+        toddler: freeChildCount
+      }
+    }))
+  },[adultCount, childCount, freeChildCount])
+  console.log(passengers)
   return (
     <section className={styles.seats}>
       <main className={styles.seatsTrains}>
         <div>
           <TicketsFilter/>
+          
           <LastTickets/>
         </div>
         <div className={styles.seatsChoice}>
@@ -172,9 +181,10 @@ export const Seats:React.FunctionComponent = () => {
                     
                   )
                 })}
-                
-              </div>
 
+              </div>
+              <div className={styles.seatsButtonWrap}><button className={`${styles.seatsButton} btn`}
+              disabled={passengers.seats.length === 0 || passengers.seats.length !== (passengers.passengers.adult + passengers.passengers.child)}>ДАЛЕЕ</button></div>
         </div>
       </main>
 

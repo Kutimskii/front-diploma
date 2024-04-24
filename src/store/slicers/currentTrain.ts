@@ -14,16 +14,6 @@ export const currentTrain = createSlice({
           action.payload[key as keyof TSeatsArgs] as string | boolean;
       }
       return state;
-      // state._id = action.payload._id
-      // state.have_first_class = action.payload.have_first_class;
-      // state.have_fourth_class = action.payload.have_fourth_class;
-      // state.have_third_class = action.payload.have_third_class;
-      // state.have_wifi = action.payload.have_wifi;
-      // state.have_air_conditioning = action.payload.have_air_conditioning;
-      // state.timeDepart = action.payload.timeDepart
-      // state.timeArriv = action.payload.timeArriv
-      // state.cityFrom = action.payload.cityFrom
-      // state.cityTo = action.payload.cityTo
     },
   },
 });

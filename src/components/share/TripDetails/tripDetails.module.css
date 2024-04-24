@@ -1,0 +1,69 @@
+*{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.tripDetails{
+  background-color: #3E3C41;
+  width: 360px;
+}
+.tripDetailsHead{
+ width: 100%;
+ text-align: center;
+ padding: 35px 0 35px 0;
+ color: white;
+ font-size: 30px;
+ font-weight: 500;
+ border-bottom: 1px solid white;
+}
+.tripDetailsToWrap{
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tripDetailsToDate{
+  color: white;
+  font-size: 18px;
+  padding-right: 40px;
+}
+.tripDetailsToIconArrow{
+  background-image: url(../../../img/icons/arrivalArrow_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  rotate: 180deg;
+  width: 32px;
+  height: 26px;
+}
+.tripDetailsToTitle{
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+
+}
+.tripDetailsStartIconMinus,
+.findTickets_from_text_iconMinus{
+  background-image: url(../../../img/icons/minusInSquare_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.tripDetailsStartIconPlus,
+.findTickets_from_text_iconPlus{
+  background-image: url(../../../img/icons/plusInsquare_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.tripDetailsStartIconPlus:hover,
+.tripDetailsStartIconMinus:hover,
+.findTickets_from_text_iconMinus:hover,
+.findTickets_from_text_iconPlus:hover{
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(91%) sepia(91%) saturate(6930%) hue-rotate(311deg) brightness(103%) contrast(102%);
+}

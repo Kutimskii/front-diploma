@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from './wagonFirst.module.css'
 import { TCoach } from "../../../../types";
+import { useDispatch } from "react-redux";
+import { savePassengers } from "../../../../store/slicers/passengers";
 type TWagonSeatsProps ={
   coach:TCoach, 
   wifi: boolean,
@@ -9,6 +11,7 @@ type TWagonSeatsProps ={
   linen:boolean
 }
 export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, air, food, linen}) => {
+  const dispatch = useDispatch()
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
   let seats = Array.from(coach.seats)
@@ -29,7 +32,15 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
     let sum = choosenSeats.reduce((acc, el) => {
       return acc + el.price
     },0)
-
+  useEffect(() => {
+      let sum = choosenSeats.reduce((acc, el) => {
+        return acc + el.price
+      },0)
+      dispatch(savePassengers({
+        seats:choosenSeats,
+        facilities: finishPrice - sum
+      }))
+    },[choosenSeats, finishPrice])
     setFinishPrice((wifi ? coach.coach.wifi_price : 0) + 
     (linen && !coach.coach.is_linens_included ? coach.coach.linens_price : 0) + sum)
   },[wifi, linen, choosenSeats])
@@ -67,7 +78,8 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
               top:`29px`,
               left:`${seatsFirst[ind].left}px`
           }} disabled={!el.available} 
-          onClick={() => changeSeats(el.index, el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
+          onClick={() => changeSeats(el.index, el.index % 2 === 0 ? 
+            coach.coach.top_price : coach.coach.bottom_price)} key={ind}>{el.index}</button>
         )
       })}
       </div>
