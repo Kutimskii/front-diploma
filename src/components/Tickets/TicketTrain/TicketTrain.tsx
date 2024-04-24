@@ -1,5 +1,4 @@
 import styles from './ticket.module.css'
-import LastStyles from './asLastTick.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { TTicket } from '../../../types'
 import React from 'react';

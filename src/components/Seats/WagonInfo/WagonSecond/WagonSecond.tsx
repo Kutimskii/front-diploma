@@ -10,7 +10,7 @@ type TWagonSeatsProps ={
   food: boolean,
   linen:boolean
 }
-export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, air, food, linen}) => {
+export const WagonSecond:React.FunctionComponent<TWagonSeatsProps> = ({coach, wifi, linen}) => {
   const dispatch = useDispatch()
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);

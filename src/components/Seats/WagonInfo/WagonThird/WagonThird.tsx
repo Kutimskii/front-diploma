@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from './wagonThird.module.css'
 import { TCoach } from "../../../../types";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { savePassengers } from "../../../../store/slicers/passengers";
-import { RootState } from "../../../../store/store";
 type TWagonSeatsProps ={
   coach: TCoach, 
   wifi: boolean,
@@ -21,7 +20,6 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
         seats.push({index: i, available: true})      
     }   
   }
-  const passengers = useSelector((state:RootState) => state.savePassengers)
   const changeSeats = (ind:number, price:number) => {
     if(choosenSeats.filter(item => item.index === ind).length){
       setChoosenSeats(prev => prev.filter(item => item.index !== ind))
@@ -89,7 +87,7 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
     <div className={styles.wagonThird}>
       <div className={styles.wagonSecondNumCoach}>{coach.coach._id.slice(-2)}</div>
       <div className={styles.wagonSecondSeats}>
-        {seats.map((el, ind, arr) => {
+        {seats.map((el, ind) => {
         if(el.index <= 32 ){
           return (
             <button className={`${styles.wagonSecondNum} ${choosenSeats.filter(item => item.index === el.index).length ? 

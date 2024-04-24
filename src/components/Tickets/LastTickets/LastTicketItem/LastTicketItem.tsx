@@ -1,5 +1,4 @@
 import styles from './lastItem.module.css'
-import { useGetLastTicketsQuery } from '../../../../store/slicers/tickets';
 import { TTicket } from '../../../../types';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

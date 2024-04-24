@@ -1,13 +1,12 @@
 import styles from './tickets.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { useGetTicketsQuery, useGetLastTicketsQuery } from '../../store/slicers/tickets';
+import { useGetTicketsQuery } from '../../store/slicers/tickets';
 import { Loader } from '../share/Loader/Loader';
 import { saveArgs } from '../../store/slicers/tickets';
 import { TicketsFilter } from '../share/TicketsFilter/TicketsFilter';
 import { useState, useEffect } from 'react';
 import { TSortObj } from '../../types';
-import { useGetSeatsQuery } from '../../store/slicers/seats';
 import React from "react";
 import { TicketsPages } from '../share/TicketsPages/TicketsPages';
 import { TicketTrain } from './TicketTrain/TicketTrain';
