@@ -4,6 +4,8 @@ import { searchTicketsSlice } from './slicers/findFields';
 import { currentTrain } from './slicers/currentTrain';
 import { ticketsArgsSlice } from './slicers/tickets'; 
 import { passengers } from './slicers/passengers';
+import { passengersData } from './slicers/passengersData';
+import { paySlice } from './slicers/payer';
 import { getSeatsSlice } from './slicers/seats';
 export const store = configureStore({
   reducer: {
@@ -12,7 +14,9 @@ export const store = configureStore({
   searchTickets: searchTicketsSlice.reducer,
   saveArgs: ticketsArgsSlice.reducer,
   saveTrain: currentTrain.reducer,
-  savePassengers: passengers.reducer
+  savePassengers: passengers.reducer,
+  addPassenger: passengersData.reducer,
+  addPayerData: paySlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(getTicketsSlice.middleware, getSeatsSlice.middleware),

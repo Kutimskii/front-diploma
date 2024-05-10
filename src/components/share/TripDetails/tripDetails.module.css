@@ -2,11 +2,13 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 18px;
+  margin: 0;
 }
 
 .tripDetails{
   background-color: #3E3C41;
   width: 360px;
+
 }
 .tripDetailsHead{
  width: 100%;
@@ -17,8 +19,11 @@
  font-weight: 500;
  border-bottom: 1px solid white;
 }
-.tripDetailsToWrap{
+.tripDetailsTo{
   padding: 22px 28px;
+  transition: all 2s;
+}
+.tripDetailsToWrap{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,3 +72,171 @@
   cursor: pointer;
   filter: brightness(0) saturate(100%) invert(91%) sepia(91%) saturate(6930%) hue-rotate(311deg) brightness(103%) contrast(102%);
 }
+.tripDetailsToNumb,
+.tripDetailsToName{
+  margin-top: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.tripDetailsToNumb p:first-child{
+  color:#E5E5E5;
+}
+.tripDetailsToNumb p:nth-child(2){
+  color:#FFFFFF;
+  font-weight: 500;
+  font-size: 24px;
+}
+.tripDetailsToName{
+  margin-top: 22px;
+  color:#E5E5E5;
+}
+.tripDetailsToNameDetails p{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-weight: 700;
+  font-size: 16px;
+}
+.tripDetailsToTime{
+  margin-top: 46px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #FFFFFF;
+}
+.tripDetailsToTimeArrive,
+.tripDetailsToInfoArrive{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.tripDetailsToTimeDepart h2,
+.tripDetailsToTimeArrive h2{
+  font-size: 24px;
+  font-weight:  700;
+}
+.tripDetailsToTimeDepart p,
+.tripDetailsToTimeArrive p{
+  font-size: 18px;
+  font-weight:  400;
+  color: #928F94;
+}
+.tripDetailsToTimeArriveVec{
+  width:30px;
+  height: 20px;
+  background-image: url('../../../img/icons/vectorTo_icon.png');
+  background-repeat: no-repeat;
+  background-position: contain;
+  margin-top: 7px;
+}
+.tripDetailsToTimeDuration{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tripDetailsToTimeDuration p{
+  font-size: 18px;
+  font-weight:  400;
+  color: #E5E5E5;
+}
+.tripDetailsToInfo{
+  display: flex;
+  justify-content: space-between;
+}
+.tripDetailsToInfoArrive h2,
+.tripDetailsToInfoDepart h2{
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight:  400;
+}
+.tripDetailsToInfoArrive p,
+.tripDetailsToInfoDepart p{
+  font-size: 18px;
+  font-weight:  400;
+  color: #928F94;
+}
+.tripDetailsToInfoArrive p{
+  text-align: end;
+}
+.tripDetailsPassengers{
+
+  width: 100%;
+  text-align: center;
+    padding: 22px 28px;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  border-top: 1px solid white;
+}
+.tripDetailsPassengers{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tripDetailsPassengers div{
+  display: flex;
+}
+.tripDetailsPassengersTitle{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+.tripDetailsPassengersIcon{
+  width:30px;
+  background-image: url('../../../img/icons/passenger_icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 20px;
+}
+.tripDetailsPassengersInfoNone{
+  display: none;
+}
+.tripDetailsPassengersInfoAdult,
+.tripDetailsPassengersInfoChild{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 22px 28px;
+  font-size: 18px;
+  font-weight:  400;
+  color: #E5E5E5;
+}
+.tripDetailspassengersPrice{
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.tripDetailspassengersPrice span{
+  font-size: 24px;
+  color: #928F94;
+}
+.tripDetailsPassengersResult{
+  border-top: 1px solid white;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 22px 28px;
+}
+.tripDetailsPassengersResult p {
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.tripDetailsPassengersResult div{
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFA800;
+}
+.tripDetailsPassengersResult div span{
+  font-size: 48px;
+  font-weight: 300;
+  color: #E5E5E5;
+}
+.hideDetails{
+  height: 0;
+  display: none;
+}
+/* .show{
+  transition: all 2s;
+} */

@@ -23,6 +23,8 @@ h1,h2,h3 {
 }
 .ticketDirectNumb{
   margin: 17px 0 15px 0;
+  font-size: 24px;
+  font-weight: 500;
 }
 .ticketDirectCities{
   display: flex;

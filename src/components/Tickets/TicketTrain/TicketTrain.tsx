@@ -2,6 +2,7 @@ import styles from './ticket.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { TTicket } from '../../../types'
 import React from 'react';
+import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../../store/store';
 import { saveTrain } from '../../../store/slicers/currentTrain';
@@ -9,8 +10,6 @@ export const TicketTrain:React.FunctionComponent <{wagon:TTicket}> = ({wagon}) =
 const dispatch = useDispatch()
 const navigate = useNavigate();
 const ticketArgs = useSelector((state:RootState) => state.saveArgs)
-const durationHours  = Math.floor(wagon.departure.duration / 3600);
-const durationMinutes = (wagon.departure.duration - (durationHours * 3600)) / 60
 const timeDeparture = (new Date(wagon.departure.from.datetime * 1000).getHours() < 10 ? '0' : '') + 
   new Date(wagon.departure.from.datetime * 1000).getHours() + ':' + 
   (new Date(wagon.departure.from.datetime * 1000).getMinutes() < 10 ? '0': '') + new Date(wagon.departure.from.datetime * 1000).getMinutes()
@@ -32,9 +31,9 @@ const saveCurrentTrain = (wag:TTicket) => {
     cityTo: wagon.departure.to.city.name[0].toUpperCase() + wagon.departure.to.city.name.slice(1),
     railwayFrom: wagon.departure.from.railway_station_name + ' вокзал',
     railwayTo: wagon.departure.to.railway_station_name + ' вокзал',
-    durationH: durationHours,
-    durationM: durationMinutes,
-    trainName: wag.departure.train.name
+    durationH: moment.unix(wagon.departure.duration).utc().hours(),
+    durationM: moment.unix(wagon.departure.duration).utc().minutes(),
+    trainName: wag.departure.train.name,
   }))
   navigate('/chooseseats')
 }
@@ -59,7 +58,10 @@ const saveCurrentTrain = (wag:TTicket) => {
       </div>
       <div className = {styles.ticketDirectTimeFromDuration}>
         <div>
-          {durationHours} : {(durationMinutes < 10 ? '0' : '') + durationMinutes}
+          {moment
+            .unix(wagon.departure.duration)
+            .utc()
+            .format("HH:mm")}
         </div>
         <div className = {styles.ticketDirectTimeDurationFromVector}></div>
       </div>

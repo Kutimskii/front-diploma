@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { TSeatsArgs } from '../../types';
-const initialState = {
+const initialState: TSeatsArgs = JSON.parse(localStorage.getItem('currentTrain')!) || {
   _id:''
 }
 export const currentTrain = createSlice({
@@ -13,6 +13,9 @@ export const currentTrain = createSlice({
         (state[key as keyof TSeatsArgs] as string | boolean) =
           action.payload[key as keyof TSeatsArgs] as string | boolean;
       }
+      localStorage.setItem(
+        'currentTrain',
+        JSON.stringify(state))
       return state;
     },
   },

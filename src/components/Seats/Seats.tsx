@@ -161,9 +161,9 @@ export const Seats:React.FunctionComponent = () => {
                   </ul>
                 </div>
                 <div className={styles.trainToWagonChoose}>
-                  <div>Вагоны {data?.map((el) => {
+                  <div>Вагоны {data?.map((el, ind ) => {
                     if (activeType.includes(el.coach.class_type)){
-                      return <span className={`${styles.trainToWagonChooseItem} ${activeWagons.includes(el.coach._id) ? 
+                      return <span key={ind} className={`${styles.trainToWagonChooseItem} ${activeWagons.includes(el.coach._id) ? 
                       styles.activeWagonItem : ''}`}
                       onClick={() => changeActiveWagon(el.coach._id)}
                     >{el.coach._id.slice(-2)}</span>
@@ -171,12 +171,13 @@ export const Seats:React.FunctionComponent = () => {
                   })}</div>
                   <div>Нумерация вагонов начинается с головы поезда</div>
                 </div>
-                {activeWagons.map((wagon) => {
+                {activeWagons.map((wagon, ind) => {
                   let currentCoach = data?.filter(el => el.coach._id === wagon)[0]
                   return (
                     <WagonInfo
                     currentCoach = {currentCoach!}
                     wagonId = {wagon}
+                    key={ind}
                     />
                     
                   )
@@ -184,7 +185,10 @@ export const Seats:React.FunctionComponent = () => {
 
               </div>
               <div className={styles.seatsButtonWrap}><button className={`${styles.seatsButton} btn`}
-              disabled={passengers.seats.length === 0 || passengers.seats.length !== (passengers.passengers.adult + passengers.passengers.child)}>ДАЛЕЕ</button></div>
+              disabled={passengers.seats.length === 0 || 
+              passengers.seats.length !== (passengers.passengers.adult + passengers.passengers.child)}
+              onClick={() => navigate('/passengers')}
+              >ДАЛЕЕ</button></div>
         </div>
       </main>
 

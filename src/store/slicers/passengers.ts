@@ -9,14 +9,14 @@ type TPassengersState= {
   seats?:{index: number, price: number}[],
   facilities?: null | number
 }
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem('passengersSeats')!) || {
   passengers:{
     adult: 0,
     child: 0,
     toddler: 0
   },
   seats:[],
-  facilities: null
+  facilities: 0
 }
 export const passengers = createSlice({
   name: 'passengers',
@@ -24,9 +24,12 @@ export const passengers = createSlice({
   reducers: {
     savePassengers: (state, action:PayloadAction<TPassengersState> ) => {
       for (let key in action.payload) {
-        (state[key as keyof TPassengersState] as string | null) =
-          action.payload[key as keyof TPassengersState] as string | null;
+        (state[key as keyof TPassengersState] as string | null | number) =
+          action.payload[key as keyof TPassengersState] as string | null | number;
       }
+      localStorage.setItem(
+        'passengersSeats',
+        JSON.stringify(state))
       return state;
     },
   },
