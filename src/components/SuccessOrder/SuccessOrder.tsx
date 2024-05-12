@@ -20,8 +20,7 @@ export default  function SuccessOrder() {
 
   return (
     <div className={styles.successOrderWrapper}>
-      <h1 className={styles.successOrderTitle}>Благодарим Вас за заказ!</h1>
-
+      <h1 className={styles.successOrderTitleHeader}>Благодарим Вас за заказ!</h1>
       <div className={styles.successOrder}>
         <div className={styles.successOrderHeader}>
           <p className={styles.successOrderTitle}>№Заказа 285АА</p>
