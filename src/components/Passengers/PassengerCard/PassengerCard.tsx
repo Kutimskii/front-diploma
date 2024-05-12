@@ -8,7 +8,7 @@ import validateDoc from './validateDoc'
 import moment from 'moment'
 import styles from './passengerCard.module.css'
 const cn = classNames.bind(styles)
-export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, type: string}> = ({ number, type }) => {
+export const PassengerCard:React.FunctionComponent <{ number: number, type: string}> = ({ number, type }) => {
   const dispatch = useDispatch();
   const { passengersData } = useSelector((state:RootState) => state.addPassenger);
   const passengersSeats = useSelector((state:RootState) => state.savePassengers);

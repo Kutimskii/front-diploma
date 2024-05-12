@@ -1,14 +1,9 @@
 import styles from './lastItem.module.css'
 import { TTicket } from '../../../../types';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { saveTrain } from '../../../../store/slicers/currentTrain';
 import moment from 'moment';
-import { RootState } from '../../../../store/store';
 export const LastTicketItem:React.FunctionComponent<{wagon:TTicket}> = ({wagon}) => {
   const navigate = useNavigate()
-  const dispatch = useDispatch();
-  const ticketArgs = useSelector((state:RootState) => state.saveArgs)
   const fromDateTime =  Number(wagon.departure.from.datetime);
   const toDateTime =  Number(wagon.departure.to.datetime);
   const timeDeparture = (new Date(fromDateTime  * 1000).getHours() < 10 ? '0' : '') + 

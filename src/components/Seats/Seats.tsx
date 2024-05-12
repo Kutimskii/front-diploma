@@ -172,7 +172,7 @@ export const Seats:React.FunctionComponent = () => {
                   <div>Нумерация вагонов начинается с головы поезда</div>
                 </div>
                 {activeWagons.map((wagon, ind) => {
-                  let currentCoach = data?.filter(el => el.coach._id === wagon)[0]
+                  const currentCoach = data?.filter(el => el.coach._id === wagon)[0]
                   return (
                     <WagonInfo
                     currentCoach = {currentCoach!}

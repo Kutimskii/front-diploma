@@ -16,7 +16,7 @@ export const passengers = createSlice({
   initialState,
   reducers: {
     savePassengers: (state, action:PayloadAction<TPassengersState> ) => {
-      for (let key in action.payload) {
+      for (const key in action.payload) {
         (state[key as keyof TPassengersState] as string | null | number) =
           action.payload[key as keyof TPassengersState] as string | null | number;
       }

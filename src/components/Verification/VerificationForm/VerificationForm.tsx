@@ -42,24 +42,25 @@ export const VerificationForm = () => {
       return {
         coach_id: train.departure.train._id,
         person_info: {
-          is_adult: el.data.type === 'adult' ? true : false,
-          first_name: el.data.name,
-          last_name: el.data.surname,
-          patronymic: el.data.lastname,
-          gender: el.data.sex === 'male' ? true : false,
-          birthday: el.data.birth,
-          document_type: el.data.type === 'adult' ? 'passport' : 'certificate',
-          document_data: `${el.data.series} + ${el.data.document}`
+          is_adult: el.data?.type === 'adult' ? true : false,
+          first_name: el.data?.name,
+          last_name: el.data?.surname,
+          patronymic: el.data?.lastname,
+          gender: el.data?.sex === 'male' ? true : false,
+          birthday: el.data?.birth,
+          document_type: el.data?.type === 'adult' ? 'passport' : 'certificate',
+          document_data: `${el.data?.series} + ${el.data?.document}`
         },
-        seat_number: el.data.seatIndex,
-        is_child: el.data.type === 'child' ? true : false,
-        include_children_seat: el.data.includeChildrenSeat
+        seat_number: el.data?.seatIndex,
+        is_child: el.data?.type === 'child' ? true : false,
+        include_children_seat: el.data?.includeChildrenSeat
       }
     })
   }
 useEffect(() => {
   if (data?.status === true) {
       localStorage.removeItem('passengersStorage')
+      localStorage.removeItem('passengersSeats')
       localStorage.removeItem('payer')
       navigate('/success');
       document.documentElement.scrollTop = 0;
@@ -67,7 +68,7 @@ useEffect(() => {
   },[data])
   console.log(data,error,isLoading)
 
-  const handleClick = (event:any) => {
+  const handleClick = (event:React.FormEvent) => {
     event.preventDefault();
     makeOrder({user: currentUser, departure: currentDeparture});
   };
@@ -99,24 +100,24 @@ useEffect(() => {
                 <div className={styles.passengerCardHeader}>
                   <img src={passenger} alt="passenger" />
                   <h5 className={styles.passengerCardTitle}>
-                    {el.data.type === 'adult' ? 'Взрослый' : 'Детский'}
+                    {el.data?.type === 'adult' ? 'Взрослый' : 'Детский'}
                   </h5>
                 </div>
                 <div className={styles.passengerCardContent}>
                   <h6 className={styles.passengerCardContentTitle}>
-                    {el.data.surname.trim()} {el.data.name.trim()}{' '}
-                    {el.data.lastname.trim()}
+                    {el.data?.surname.trim()} {el.data?.name.trim()}{' '}
+                    {el.data?.lastname.trim()}
                   </h6>
                   <p className={styles.passengerCardContentText}>
-                    Пол {el.data.sex === 'male' ? 'мужской' : 'женский'}
+                    Пол {el.data?.sex === 'male' ? 'мужской' : 'женский'}
                   </p>
                   <p className={styles.passengerCardContentText}>
-                    Дата рождения {moment(el.data.birth, 'YYYY-MM-DD').format('DD.MM.YYYY')}
+                    Дата рождения {moment(el.data?.birth, 'YYYY-MM-DD').format('DD.MM.YYYY')}
                   </p>
                   <p className={styles.passengerCardContentText}>
-                    {el.data.type === 'adult'
-                      ? `Паспорт РФ  ${el.data.series} ${el.data.document}`
-                      : `Свидетельство о рождении ${el.data.document}`}
+                    {el.data?.type === 'adult'
+                      ? `Паспорт РФ  ${el.data.series} ${el.data?.document}`
+                      : `Свидетельство о рождении ${el.data?.document}`}
                   </p>
                 </div>
               </div>

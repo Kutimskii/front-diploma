@@ -14,7 +14,7 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
   const dispatch = useDispatch()
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
-  let seats = Array.from(coach.seats)
+  const seats = Array.from(coach.seats)
   if (seats.length < 16) {
       for (let i = seats.length + 1; i <= 16; i++){
         seats.push({index: i, available: false})      
@@ -28,19 +28,19 @@ export const WagonFirst:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
     }
 
   }
-  useEffect(()=>{
-    let sum = choosenSeats.reduce((acc, el) => {
+  useEffect(() => {
+    const sum = choosenSeats.reduce((acc, el) => {
       return acc + el.price
     },0)
-  useEffect(() => {
-      let sum = choosenSeats.reduce((acc, el) => {
-        return acc + el.price
-      },0)
-      dispatch(savePassengers({
-        seats:choosenSeats,
-        facilities: finishPrice - sum
-      }))
-    },[choosenSeats, finishPrice])
+    dispatch(savePassengers({
+      seats:choosenSeats,
+      facilities: finishPrice - sum
+    }))
+  },[choosenSeats, finishPrice])
+  useEffect(()=>{
+    const sum = choosenSeats.reduce((acc, el) => {
+      return acc + el.price
+    },0)
     setFinishPrice((wifi ? coach.coach.wifi_price : 0) + 
     (linen && !coach.coach.is_linens_included ? coach.coach.linens_price : 0) + sum)
   },[wifi, linen, choosenSeats])

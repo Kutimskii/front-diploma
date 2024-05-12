@@ -219,8 +219,8 @@ export type TCoach = {
   seats:Array<{index: number, available: boolean}>
 }
 export type TPassengersData = {
-  number: number, 
-  data: {
+  number?: number, 
+  data?: {
     number:number
     type:string
     surname:string
@@ -236,5 +236,5 @@ export type TPassengersData = {
  
 }
 export type TPassengersDataState = {
-  passengersData: Array<TPassengersData> | any[]
+  passengersData?: TPassengersData[] 
 }

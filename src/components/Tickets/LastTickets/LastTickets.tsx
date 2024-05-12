@@ -8,7 +8,7 @@ export const LastTickets:React.FunctionComponent = () => {
     <aside className={styles.lastTickets}>
       <h2 className={styles.lastTicketsHeader}>ПОСЛЕДНИЕ БИЛЕТЫ</h2>
       <ul className={styles.lastTicketsWrap}>
-        {data?.length! > 0 ? data?.map((item: TTicket, index: number) => <LastTicketItem wagon = {item} key = {index} />) : null}
+        {data?.length ? data?.map((item: TTicket, index: number) => <LastTicketItem wagon = {item} key = {index} />) : null}
       </ul>
     </aside>
   )

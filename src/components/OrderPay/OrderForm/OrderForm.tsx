@@ -38,22 +38,22 @@ export const OrderForm = () => {
     setDisabled(false);
   }, [form]);
 
-  const handleChange = (event:any) => {
+  const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleRadio = (event:any) => {
+  const handleRadio = (event:React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, pay: event.target.id }));
   };
 
-  const handleClick = (event:any) => {
+  const handleClick = (event:React.FormEvent) => {
     event.preventDefault();
     dispatch(addPayerData({ data: form }));
     navigate('/order/verification/');
   };
 
-  const onChangePhone = (event:any) => {
+  const onChangePhone = (event:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     if (value.length === 1) {

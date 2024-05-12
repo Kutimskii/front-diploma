@@ -14,7 +14,7 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
   const dispatch = useDispatch()
   const [finishPrice, setFinishPrice] = useState<number>(0);
   const [choosenSeats, setChoosenSeats] = useState<{index: number, price:number }[]>([]);
-  let seats = Array.from(coach.seats)
+  const seats = Array.from(coach.seats)
   if (seats.length < 48) {
       for (let i = seats.length + 1; i <= 48; i++){
         seats.push({index: i, available: true})      
@@ -29,7 +29,7 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
 
   }
   useEffect(()=>{
-    let sum = choosenSeats.reduce((acc, el) => {
+    const sum = choosenSeats.reduce((acc, el) => {
       return acc + el.price
     },0)
     setFinishPrice((wifi ? coach.coach.wifi_price : 0) + 
@@ -37,7 +37,7 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
   },[wifi, linen, choosenSeats])
   
   useEffect(() => {
-    let sum = choosenSeats.reduce((acc, el) => {
+    const sum = choosenSeats.reduce((acc, el) => {
       return acc + el.price
     },0)
     dispatch(savePassengers({
@@ -45,7 +45,6 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
       facilities: finishPrice - sum
     }))
   },[choosenSeats, finishPrice])
-  // console.log(passengers)
  const seatsSecond =[
     {left:133},
     {left:193},
@@ -108,7 +107,7 @@ export const WagonThird:React.FunctionComponent<TWagonSeatsProps> = ({coach, wif
               left:`${seatsThirdSide[ind - 32].left}px`
           }} disabled={!el.available} 
           onClick={() => changeSeats(el.index, el.index > 32 ? coach.coach.side_price :
-            el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)}>{el.index}</button>
+            el.index % 2 === 0 ? coach.coach.top_price : coach.coach.bottom_price)} key={ind}>{el.index}</button>
           )
         }
         

@@ -19,7 +19,7 @@ export const TripDetails:React.FunctionComponent = () => {
     if (filledData.date_end){
       return new Date(filledData.date_end as string).toLocaleDateString('ru');
     }
-    date.setHours((+train?.departure.from.timeDeparture?.slice(0,2)! + (train?.departure.durationH! + (train?.departure.durationM!/60))))
+    date.setHours((+train?.departure.from.timeDeparture?.slice(0,2) + (train?.departure.durationH + (train?.departure.durationM/60))))
     return date.toLocaleDateString('ru')
   }
   const adultPrice = passengers.seats.slice(0, passengers.passengers.adult).reduce((acc: number, el:{index:number, price: number}) => {
@@ -33,7 +33,7 @@ export const TripDetails:React.FunctionComponent = () => {
   const dateEnd = dateEndFunc();
   useEffect(()=>{
     dispatch(savePassengers({
-      resultPrice:adultPrice + childPrice + passengers.facilities!
+      resultPrice: adultPrice + childPrice + passengers.facilities!
     }
     ))
 

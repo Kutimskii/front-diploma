@@ -2,7 +2,8 @@ import styles from './ticketsPages.module.css'
 import React from 'react';
 import { Pagination, ConfigProvider,PaginationProps } from 'antd';
 export const TicketsPages:
-React.FunctionComponent<{changeOffset:Function, totalCount:number | undefined, limit:number }>  = ({changeOffset, totalCount, limit}) => {
+React.FunctionComponent<{changeOffset:React.Dispatch<React.SetStateAction<number>>,
+   totalCount:number | undefined, limit:number }>  = ({changeOffset, totalCount, limit}) => {
   const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
     if (type === 'jump-next'){
       return <div className={styles.ticketsPagesJumpNext}><div >...</div></div>;
@@ -42,7 +43,7 @@ React.FunctionComponent<{changeOffset:Function, totalCount:number | undefined, l
               >
       <Pagination 
       itemRender={itemRender}
-      onChange={(page) =>changeOffset((page-1)*limit)}
+      onChange={(page) => changeOffset((page-1) * limit)}
       defaultCurrent={1} 
       total={totalCount} 
       hideOnSinglePage={true}
