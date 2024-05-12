@@ -1,7 +1,6 @@
 import styles from './stepsOfOrder.module.css'
 import { TStepsStateProp } from '../../../types'
 export const StepsOfOrder:React.FunctionComponent<{stepsState:TStepsStateProp}> = ({stepsState}) => {
-console.log(stepsState)
   return (
     <div className={styles.stepsOfOrder}>
       <div className={`${styles.step} ${styles.step_one} ${styles[stepsState[1]]} ${stepsState[2] ? styles.full : ''}`}>
