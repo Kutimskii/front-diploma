@@ -84,7 +84,7 @@ available_seats_info: {
   fourth?: number
   third?: number
 }
-departure: {
+departure:{
   available_seats: number 
   available_seats_info: {
     first?: number
@@ -92,14 +92,17 @@ departure: {
     fourth?: number
     third?: number
   }
+  durationH: number
+  durationM: number
   duration: number
   from: {
     city: {
       name: string
       _id: string
     }
-    datetime: number
+    datetime: number | string
     railway_station_name: string
+    timeDeparture:string
   }
   have_air_conditioning: boolean
   have_first_class: boolean
@@ -135,7 +138,8 @@ departure: {
         name: string
         _id: string
       }
-      datetime: number
+      datetime: number | string
+      timeArrival: string
       railway_station_name: string
     }
     train: {
@@ -153,23 +157,41 @@ have_air_conditioning: boolean
   is_express: boolean
   min_price: number
 }
-export type TSeatsArgs = {
-  _id: string
-  have_first_class?: boolean
-  have_fourth_class?: boolean
-  have_second_class?: boolean
-  have_third_class?: boolean
-  have_wifi?: boolean
-  have_air_conditioning?: boolean
-  timeDepart?: string
-  timeArriv?: string
-  cityFrom?: string
-  cityTo?: string
-  railwayFrom?: string
-  railwayTo?: string
-  durationH?: number
-  durationM?: number
-  trainName?: string
+// export type TSeatsArgs = {
+//   _id: string
+//   have_first_class?: boolean
+//   have_fourth_class?: boolean
+//   have_second_class?: boolean
+//   have_third_class?: boolean
+//   have_wifi?: boolean
+//   have_air_conditioning?: boolean
+//   timeDepart?: string
+//   timeArriv?: string
+//   cityFrom?: string
+//   cityTo?: string
+//   railwayFrom?: string
+//   railwayTo?: string
+//   durationH?: number
+//   durationM?: number
+//   trainName?: string
+//   seatsFirst?: number
+//   seatsSecond?: number
+//   seatsThird?: number
+//   seatsFourth?: number
+//   topPriceFirst?: number
+//   topPriceSecond?: number
+//   topPriceThird?: number
+//   topPriceFourth?: number
+// }
+export type TPassengersState= {
+  passengers?:{
+    adult:null | number,
+    child:null | number,
+    toddler: null | number
+  },
+  seats?:{index: number, price: number}[],
+  facilities?: null | number
+  resultPrice?: number
 }
 export type TWagonType = {
   first: string
@@ -195,4 +217,24 @@ export type TCoach = {
     _id: string
   }
   seats:Array<{index: number, available: boolean}>
+}
+export type TPassengersData = {
+  number: number, 
+  data: {
+    number:number
+    type:string
+    surname:string
+    name:string
+    lastname:string
+    sex: string
+    birth: string
+    series: string
+    document: string
+    seatIndex: number
+    includeChildrenSeat: boolean
+  }
+ 
+}
+export type TPassengersDataState = {
+  passengersData: Array<TPassengersData> | any[]
 }

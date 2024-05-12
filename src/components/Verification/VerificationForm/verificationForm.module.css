@@ -1,0 +1,196 @@
+*{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.trainCardVerification {
+  margin: 0;
+}
+
+.verificationSection {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 45px;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  margin-left: 58px; 
+}
+
+.verificationSection:first-child {
+  margin-top: 0;
+}
+
+.verificationTitle {
+  font-size: 30px;
+  line-height: 95px;
+  margin: 0;
+  padding-left: 30px;
+  height: 95px;
+  color: #292929;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.orderVerification .orderTrain {
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+}
+
+.verificationPassenger {
+  display: flex;
+}
+
+.passengerCard {
+  background: #ffffff;
+  display: flex;
+  width: 680px;
+  font-size: 18px;
+  line-height: 21px;
+  color: #292929;
+  padding-top: 30px;
+  padding-bottom: 34px;
+  border-right: 1px dashed #e5e5e5;
+}
+
+.passengerCard:last-child {
+  border-bottom: none;
+}
+
+.passengerCard~.passenger_card {
+  border-top: 1px dashed #e5e5e5;
+}
+
+.passengerCardHeader {
+  width: 156px;
+  text-align: center;
+}
+
+.passengerCardTitle {
+  margin: 17px 0 0;
+  font-size: 18px;
+  color: #292929;
+}
+
+.passengerCardContentTitle {
+  font-size: 18px;
+  line-height: 21px;
+  color: #292929;
+  margin: 0 0 18px;
+}
+
+.passengerCardContentText {
+  color: #928f94;
+  margin: 0 0 5px;
+}
+
+.verificationPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.verificationPriceWrapper {
+  margin-bottom: 28px;
+  margin-right: 28px;
+}
+
+.verificationPriceName {
+  margin: 0 15px 0 0;
+  font-size: 30px;
+  line-height: 35px;
+  color: #292929;
+  display: inline-block;
+}
+
+.verificationPriceSumValue {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  color: #292929;
+}
+
+.verificationCurrency {
+  height: 24px;
+  margin-left: 7px;
+}
+
+.verificationContent {
+  display: flex;
+}
+
+.verificationPayment {
+  width: 680px;
+  padding: 44px 33px 76px;
+  font-size: 24px;
+  color: #292929;
+  border-right: 1px dashed #e5e5e5;
+}
+
+.verifPaymentBtnWrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.verificationButton {
+  height: 39px;
+  margin-left: 25px;
+  margin-bottom: 24px;
+  padding: 0 60px 0 60px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #292929;
+  background: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #292929;
+}
+
+.verificationButton:hover {
+  border: 1px solid #292929;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: #ffa800;
+  cursor: pointer;
+}
+
+.verificationPriceWrapper~.verificationButton {
+  margin-right: 22px;
+  margin-bottom: 24px;
+}
+
+.verificationButton:active {
+  color: #292929;
+  border: none;
+  background: #ffa800;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.verificationButtons {
+  height: 183px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 140px;
+}
+
+.verificationButtonNext {
+  height: 60px;
+  padding: 0 70px 0 70px;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #ffa800;
+  border-radius: 5px;
+  border: none;
+}
+
+.verificationButtonNext:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.verificationButtonNext:active {
+  color: #ffa800;
+  border: 1px solid #ffa800;
+  background-color: #e5e5e5;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}

@@ -1,5 +1,5 @@
 import styles from './stepsOfOrder.module.css'
-import { TStepsStateProp } from '../../types'
+import { TStepsStateProp } from '../../../types'
 export const StepsOfOrder:React.FunctionComponent<{stepsState:TStepsStateProp}> = ({stepsState}) => {
 console.log(stepsState)
   return (

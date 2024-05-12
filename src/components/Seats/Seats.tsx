@@ -7,7 +7,7 @@ import { LastTickets } from '../Tickets/LastTickets/LastTickets';
 import { TicketsFilter } from '../share/TicketsFilter/TicketsFilter';
 import { useGetSeatsQuery } from '../../store/slicers/seats';
 import { RootState } from '../../store/store';
-import { TSeatsArgs } from '../../types';
+import { TTicket } from '../../types';
 import { InputNumber } from 'antd';
 import { TWagonType } from '../../types';
 import { ConfigProvider } from 'antd';
@@ -21,10 +21,11 @@ export const Seats:React.FunctionComponent = () => {
     fourth: 'Сидячий'
   }
   const dispatch = useDispatch();
-  const seatsArgs:TSeatsArgs = useSelector((state:RootState) => state.saveTrain)
+  const currentTrain:TTicket = useSelector((state:RootState) => state.saveTrain)
   const passengers = useSelector((state:RootState) => state.savePassengers)
   const navigate = useNavigate();
-  const {data} = useGetSeatsQuery(seatsArgs);
+  const {data} = useGetSeatsQuery(currentTrain);
+  console.log(currentTrain, data)
   const [adultCount, setAdultCount] = useState<number | null>(0);
   const [childCount, setchildCount] = useState<number | null>(0);
   const [freeChildCount, setfreeChildCount] = useState<number | null>(0);
@@ -55,7 +56,6 @@ export const Seats:React.FunctionComponent = () => {
       <main className={styles.seatsTrains}>
         <div>
           <TicketsFilter/>
-          
           <LastTickets/>
         </div>
         <div className={styles.seatsChoice}>
@@ -69,26 +69,26 @@ export const Seats:React.FunctionComponent = () => {
                 <div className={styles.trainToTimeInfo}>
                   <div className={styles.trainToTimeInfoIcon}></div>
                   <div>
-                    <h2>{seatsArgs.trainName}</h2>
-                    <div>{seatsArgs.cityFrom} &#8594;</div> 
-                    <div>{seatsArgs.cityTo}</div> 
+                    <h2>{currentTrain.departure.train.name}</h2>
+                    <div>{currentTrain.departure.from.city.name} &#8594;</div> 
+                    <div>{currentTrain.departure.to.city.name}</div> 
                   </div>
                   <div className = {styles.seatsDepartInfo}>
-                    <h2>{seatsArgs.timeDepart}</h2>
-                    <div className = {styles.seatsCity}>{seatsArgs.cityFrom}</div>
-                    <div className = {styles.seatsRailway}>{seatsArgs.railwayFrom}</div>
+                    <h2>{currentTrain.departure.from.timeDeparture}</h2>
+                    <div className = {styles.seatsCity}>{currentTrain.departure.from.city.name}</div>
+                    <div className = {styles.seatsRailway}>{currentTrain.departure.from.railway_station_name}</div>
                   </div>
                   <div className = {styles.seatsFromVector}></div>
                   <div className = {styles.seatsArriveInfo}>
-                    <h2>{seatsArgs.timeArriv}</h2>
-                    <div className = {styles.seatsCity}>{seatsArgs.cityTo}</div>
-                    <div className = {styles.seatsRailway}>{seatsArgs.railwayTo}</div>
+                    <h2>{currentTrain.departure.to.timeArrival}</h2>
+                    <div className = {styles.seatsCity}>{currentTrain.departure.to.city.name}</div>
+                    <div className = {styles.seatsRailway}>{currentTrain.departure.to.railway_station_name}</div>
                   </div>
                   <div className = {styles.seatsDuration}>
                     <div className = {styles.seatsDurationIcon}></div>
                     <div>
-                      <div>{seatsArgs.durationH} часов</div>
-                      <div>{seatsArgs.durationM} минут</div>
+                      <div>{currentTrain.departure.durationH} часов</div>
+                      <div>{currentTrain.departure.durationM} минут</div>
                     </div>
                   </div>
                 </div>

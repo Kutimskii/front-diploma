@@ -7,10 +7,12 @@ import { passengers } from './slicers/passengers';
 import { passengersData } from './slicers/passengersData';
 import { paySlice } from './slicers/payer';
 import { getSeatsSlice } from './slicers/seats';
+import { makeOrderSlice } from './slicers/makeOrder';
 export const store = configureStore({
   reducer: {
   [getTicketsSlice.reducerPath]:getTicketsSlice.reducer,
   [getSeatsSlice.reducerPath]:getSeatsSlice.reducer,
+  [makeOrderSlice.reducerPath]:makeOrderSlice.reducer,
   searchTickets: searchTicketsSlice.reducer,
   saveArgs: ticketsArgsSlice.reducer,
   saveTrain: currentTrain.reducer,
@@ -19,7 +21,7 @@ export const store = configureStore({
   addPayerData: paySlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(getTicketsSlice.middleware, getSeatsSlice.middleware),
+    getDefaultMiddleware().concat(getTicketsSlice.middleware, getSeatsSlice.middleware,makeOrderSlice.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

@@ -4,6 +4,8 @@ import { ChooseTrain } from './pages/ChooseTrain';
 import { ChooseSeats } from './pages/ChooseSeats';
 import { PassengersPage } from './pages/PassengersPage';
 import { OrderPayPage } from './pages/OrderPayPage';
+import { VerificationPage } from './pages/VerificationPage';
+import { SuccessPage } from './pages/SuccessPage';
 function App() {
   return (
     <>
@@ -14,6 +16,8 @@ function App() {
         <Route path = '/chooseseats' element = {<ChooseSeats/>}></Route>
         <Route path = '/passengers' element = {<PassengersPage/>}></Route>
         <Route path = '/order' element = {<OrderPayPage/>}></Route>
+        <Route path = '/order/verification' element = {<VerificationPage/>}></Route>
+        <Route path = '/success' element = {<SuccessPage/>}></Route>
       </Routes>
     </HashRouter>
   </> );

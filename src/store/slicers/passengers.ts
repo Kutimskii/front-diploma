@@ -1,14 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-type TPassengersState= {
-  passengers?:{
-    adult:null | number,
-    child:null | number,
-    toddler: null | number
-  },
-  seats?:{index: number, price: number}[],
-  facilities?: null | number
-}
+import { TPassengersState } from '../../types';
 const initialState = JSON.parse(localStorage.getItem('passengersSeats')!) || {
   passengers:{
     adult: 0,
@@ -16,7 +8,8 @@ const initialState = JSON.parse(localStorage.getItem('passengersSeats')!) || {
     toddler: 0
   },
   seats:[],
-  facilities: 0
+  facilities: 0,
+  resultPrice: 0
 }
 export const passengers = createSlice({
   name: 'passengers',

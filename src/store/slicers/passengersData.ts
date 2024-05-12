@@ -1,26 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-export type TPassengersData = {
-  number: number, 
-  data: {
-    number:number
-    type:string
-    surname:string
-    name:string
-    lastname:string
-    sex: string
-    birth: string
-    series: string
-    document: string
-  }
- 
-}
-type TPassengersDataState = {
-  passengersData: Array<TPassengersData> | any[]
-}
+import { TPassengersDataState, TPassengersData } from '../../types';
 const initialState = {
   passengersData: JSON.parse(localStorage.getItem('passengersStorage')!) || [] as any [],
 }
+console.log(JSON.parse(localStorage.getItem('passengersStorage')!))
 export const passengersData = createSlice({
   name: 'passengersData',
   initialState,
@@ -40,8 +24,15 @@ export const passengersData = createSlice({
       }
       localStorage.setItem('passengersStorage', JSON.stringify(state.passengersData));
     },
+    removePassenger: (state:TPassengersDataState, action:PayloadAction<number>) => {
+          state.passengersData = state.passengersData.filter(el => el.number !== action.payload)
+          localStorage.setItem(
+            'passengersStorage',
+            JSON.stringify(state.passengersData)
+          );
+        localStorage.setItem('passengersStorage', JSON.stringify(state.passengersData));
     },
   },
-);
-export const { addPassenger } = passengersData.actions
+});
+export const { addPassenger,removePassenger } = passengersData.actions
 export default passengersData.reducer

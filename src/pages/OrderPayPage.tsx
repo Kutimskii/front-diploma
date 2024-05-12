@@ -1,8 +1,8 @@
 import { Header } from "../components/share/Header/Header";
 import { Footer } from "../components/share/Footer/Footer";
-import { StepsOfOrder } from "../components/StepsOfOrder/StepsOfOrder";
+import { StepsOfOrder } from "../components/share/StepsOfOrder/StepsOfOrder";
 import React from "react";
-import { Order } from "../components/OrderForm/Order";
+import { Order } from "../components/OrderPay/Order";
 export const OrderPayPage:React.FunctionComponent = () => {
   return (
   <>

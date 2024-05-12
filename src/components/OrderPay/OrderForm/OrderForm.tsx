@@ -156,7 +156,7 @@ export const OrderForm = () => {
           <section className={styles.payFormPayment}>
             <h4 className={`${styles.payFormTitle} ${styles.payFormTitleRepeat}`}>Способ оплаты</h4>
 
-            <div className={styles.payFormControlGroup}>
+            <div className={styles.payFormControlsGroup}>
               <input
                 className={styles.payFormFieldControl}
                 type="radio"
@@ -211,6 +211,7 @@ export const OrderForm = () => {
             form="payform"
             onClick={handleClick}
             disabled={disabled}
+            
           >
             Купить билеты
           </button>

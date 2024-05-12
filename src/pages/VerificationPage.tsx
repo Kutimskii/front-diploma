@@ -1,9 +1,9 @@
 import { Header } from "../components/share/Header/Header";
 import { Footer } from "../components/share/Footer/Footer";
-import { Seats } from "../components/Seats/Seats";
 import { StepsOfOrder } from "../components/share/StepsOfOrder/StepsOfOrder";
 import React from "react";
-export const ChooseSeats:React.FunctionComponent = () => {
+import { Verification } from "../components/Verification/Verification";
+export const VerificationPage:React.FunctionComponent = () => {
   return (
   <>
     <Header
@@ -13,11 +13,11 @@ export const ChooseSeats:React.FunctionComponent = () => {
     <StepsOfOrder
       stepsState = {{
         1: 'active_step',
-        2: '',
-        3: '',
-        4: '',
+        2: 'active_step',
+        3: 'active_step',
+        4: 'active_step',
       }}/>
-    <Seats/>
+    <Verification/>
     <Footer/>
   </>
   );

@@ -1,19 +1,28 @@
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 import { RootState } from '../../../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPassenger } from '../../../store/slicers/passengersData'
-import { TPassengersData } from '../../../store/slicers/passengersData'
+import { addPassenger, removePassenger } from '../../../store/slicers/passengersData'
+import { TPassengersData } from '../../../types'
 import classNames from 'classnames/bind'
 import validateDoc from './validateDoc'
 import moment from 'moment'
 import styles from './passengerCard.module.css'
 const cn = classNames.bind(styles)
-export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, type: string}> = ({seat, number, type}) => {
-  
+export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, type: string}> = ({ number, type }) => {
   const dispatch = useDispatch();
   const { passengersData } = useSelector((state:RootState) => state.addPassenger);
-  const [activeCard, setActiveCard] = useState(true)
-  const currrentPassenger = passengersData.find((e:TPassengersData) => e.number === number)
+  const passengersSeats = useSelector((state:RootState) => state.savePassengers);
+  const [activeCard, setActiveCard] = useState(true);
+  const currrentPassenger = passengersData.find((e:TPassengersData) => e.number === number);
+  const isNeedChildSeat = (numbOfPassenger:number) => {
+    if (passengersSeats.passengers.toddler > passengersSeats.passengers.adult){
+      return true
+    }
+    if (passengersSeats.passengers.toddler < passengersSeats.passengers.adult){
+      return numbOfPassenger >= passengersSeats.passengers.toddler ? true : false 
+    }
+  }
+  console.log(passengersSeats.passengers.toddler)
   const [form, setForm] = useState({
     number,
     type,
@@ -24,6 +33,8 @@ export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, ty
     birth: currrentPassenger ? currrentPassenger.data.birth : '',
     series: currrentPassenger ? currrentPassenger.data.series : '',
     document: currrentPassenger ? currrentPassenger.data.document : '',
+    seatIndex: passengersSeats.seats[number - 1].index!,
+    includeChildrenSeat: isNeedChildSeat(number)!,
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [documentType, setDocumentType] = useState(
@@ -63,14 +74,15 @@ export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, ty
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    console.log(name, value )
     setForm((prev) => ({ ...prev, [name]: value }));
+    dispatch(removePassenger(number))
   };
   const handleRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, sex: event.target.dataset.id! }));
   };
   const onSubmit = (e:React.FormEvent) => {
     e.preventDefault();
-
     if (!(form.surname.trim() && form.name.trim() && form.lastname.trim())) {
       manageMessages('Необходимо ввести фамилию, имя и отчество пассажира');
       return;
@@ -291,7 +303,7 @@ export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, ty
                   placeholder={
                     documentType === 'passport'
                       ? '_ _ _ _ _ _'
-                      : 'Пример, III-ET 545454'
+                      : 'Пример, III-EV 545454'
                   }
                   maxLength={
                     documentType === 'passport'
@@ -303,10 +315,6 @@ export const PassengerCard:React.FunctionComponent <{seat:{}, number: number, ty
                   onChange={handleChange}
                 />
               </label>
-            {/* <div className={styles.passengerFormDocument}>
-
-            </div> */}
-
           </div>
           <div className={passengerFormFooterCls}>
               {currrentPassenger && (<div className={styles.passengerFormMessage}>

@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { Dayjs } from "dayjs";
 ru.lang.monthFormat="MMMM";
-export const FindTicketVidget:React.FunctionComponent<{slogan:boolean}> = ({slogan}) => {
+export const FindTicketVidget:React.FunctionComponent<{slogan:boolean | string}> = ({slogan}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const filledFields = useSelector((state:RootState) => state.searchTickets);

@@ -1,0 +1,157 @@
+*{
+  font-family: "Roboto", sans-serif;
+}
+.successOrderTitle {
+  font-size: 72px;
+  line-height: 84px;
+  color: #FFFFFF;
+  margin-left: calc(50% - 702px);
+  margin-bottom: 35px;
+}
+
+.successOrderWrapper {
+  position: relative;
+  top: -310px;
+  height: 1080px;
+}
+
+.successOrder {
+  position: absolute;
+  width: 1404px;
+  left: calc(50% - 702px);
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.successOrderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 148px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.successOrderTitle {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  color: #3e3c41;
+  margin: 0 0 0 82px;
+}
+
+.successOrderPrice {
+  font-size: 36px;
+  line-height: 42px;
+  color: #928f94;
+}
+
+.successOrderValue {
+  font-weight: 700;
+  font-size: 36px;
+  color: #3E3C41;
+}
+
+.successOrderCurrency {
+  margin-left: 10px;
+  margin-right: 81px;
+  color: #928F94;
+  font-size: 36px;
+}
+
+.successOrderInstructions {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 300px;
+  background-color: #F4F3F6;
+}
+
+.successOrderInstruction {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  line-height: 21px;
+  color: #292929;
+}
+
+.successOrderInstructionIcon {
+  margin-bottom: 11px;
+}
+
+.successOrderInstructionText {
+  font-size: 18px;
+  color: #292929;
+}
+
+.successOrderInstructionText strong {
+  color: inherit;
+}
+
+.successOrderMessage {
+  padding: 95px 205px 129px;
+}
+
+.successOrderMessageTitle {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #292929;
+  margin-bottom: 51px;
+}
+
+.successOrderMessageText {
+  margin-bottom: 85px;
+  font-size: 24px;
+  line-height: 35px;
+  color: #292929;
+}
+
+.successOrderMessageText.thanks {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.successOrderFooter {
+  background: rgba(255, 168, 0, 0.88);
+  display: flex;
+  align-items: center;
+}
+
+.successOrderFooterForm {
+  margin-left: 83px;
+  align-items: center;
+  display: flex;
+}
+
+.successOrderFooterTitle {
+  font-size: 24px;
+  line-height: 28px;
+  color: #292929;
+}
+
+.successOrderFooterIcons {
+  margin-left: 30px;
+}
+
+.successOrderFooterButton {
+  margin: 51px 78px 50px auto;
+  height: 60px;
+  padding: 0 13px 0 13px;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  background: rgba(255, 168, 0, 0.88);
+  border-radius: 5px;
+  border: 1px solid #3e3c41;
+}
+
+.successOrderFooterButton:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.successOrderFooterButton:active {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background: #e5e5e5;
+  color: #ffa800;
+}

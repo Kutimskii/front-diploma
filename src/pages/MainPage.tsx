@@ -8,7 +8,7 @@ export const MainPage:React.FunctionComponent = () => {
   return (
   <>
     <Header
-      headerBckgAlt={false}
+      headerBckgAlt={ false }
       travelSlogan = { true }
     />
     <InfoAbout/>
